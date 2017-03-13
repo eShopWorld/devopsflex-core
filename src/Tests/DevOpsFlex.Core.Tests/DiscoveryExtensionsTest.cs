@@ -27,7 +27,7 @@ public class DiscoveryExtensionsTest
 
 public class TestPullConnector : IPullTelemetry
 {
-    public void Connect(IObserver<BbEvent> stream)
+    public void Connect(IObservable<BbEvent> stream)
     {
         throw new NotImplementedException();
     }
@@ -35,7 +35,7 @@ public class TestPullConnector : IPullTelemetry
 
 public class TestPushConnector : IPushTelemetry
 {
-    public IObservable<BbEvent> Connect()
+    public IObserver<BbEvent> Connect()
     {
         throw new NotImplementedException();
     }

@@ -61,9 +61,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BbEvent.cs" />
+    <Compile Include="BbExceptionEvent.cs" />
+    <Compile Include="BbTelemetryEvent.cs" />
     <Compile Include="DiscoveryExtensions.cs" />
     <Compile Include="IPushTelemetry.cs" />
     <Compile Include="IPullTelemetry.cs" />
+    <Compile Include="LittleBrother.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
