@@ -65,7 +65,7 @@ public class DiscoveryExtensionsTest
                     new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
 
                 var compilationResult = compilationOld.Emit(ms);
-                Assert.True(compilationResult.Success, $"OldReference assembly generation failed, inspect {nameof(compilationResult)}.Diagnostics");
+                Assert.True(compilationResult.Success, $"Assembly generation failed, inspect {nameof(compilationResult)}.Diagnostics");
 
                 ms.Seek(0, SeekOrigin.Begin);
 
