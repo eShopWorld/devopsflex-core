@@ -12,14 +12,14 @@ public class DiscoveryExtensionsTest
         [Fact, IsUnit]
         public void Test_GetSinglePull()
         {
-            var result = AppDomain.CurrentDomain.GetPullConnectors();
+            var result = new[] { GetType().Assembly }.GetConnectors<IPullTelemetry>();
             result.Should().ContainSingle(c => c.GetType() == typeof(TestPullConnector));
         }
 
         [Fact, IsUnit]
         public void Test_GetSinglePush()
         {
-            var result = AppDomain.CurrentDomain.GetPushConnectors();
+            var result = new[] {GetType().Assembly}.GetConnectors<IPushTelemetry>();
             result.Should().ContainSingle(c => c.GetType() == typeof(TestPushConnector));
         }
     }
