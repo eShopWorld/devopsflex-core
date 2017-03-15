@@ -20,8 +20,8 @@ public class LittleBrotherPushConnectorTest
             e =>
             {
                 e.Should().Be(testEvent);
-                resetEvent.Set();
                 received = true;
+                resetEvent.Set();
             });
 
         lb.Publish(testEvent);
