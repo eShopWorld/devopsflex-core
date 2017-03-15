@@ -12,7 +12,7 @@
         ///     This is used by packages loaded after big brother, that need to start using it to push
         ///     internal telemetry.
         /// </summary>
-        /// <param name="stream">The <see cref="IObservable{BbEvent}"/> stream that the internal package should push to.</param>
-        void Connect(IObservable<BbEvent> stream);
+        /// <returns>The <see cref="IObserver{BbEvent}"/> stream of events that the internal package needs to push to in order to get pushed.</returns>
+        IObserver<BbEvent> Connect();
     }
 }

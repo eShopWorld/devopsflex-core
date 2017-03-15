@@ -60,6 +60,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LittleBrotherPushConnector.cs" />
     <Compile Include="BbEvent.cs" />
     <Compile Include="BbExceptionEvent.cs" />
     <Compile Include="BbTelemetryEvent.cs" />

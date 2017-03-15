@@ -53,7 +53,6 @@ public class DiscoveryExtensionsTest
                     }}");
 
                 var compilation = CSharpCompilation.Create(
-
                     $"{nameof(DevOpsFlex)}.{nameof(DiscoveryExtensionsTest)}.InvalidConnector",
                     new[] { code },
                     new[]
@@ -61,14 +60,12 @@ public class DiscoveryExtensionsTest
                         MetadataReference.CreateFromFile(typeof(object).Assembly.Location),
                         MetadataReference.CreateFromFile(typeof(IPushTelemetry).Assembly.Location)
                     },
-
                     new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
 
                 var compilationResult = compilation.Emit(ms);
                 Assert.True(compilationResult.Success, $"Assembly generation failed, inspect {nameof(compilationResult)}.Diagnostics");
 
                 ms.Seek(0, SeekOrigin.Begin);
-
                 var asm = Assembly.Load(ms.ToArray());
 
                 // ReSharper disable once ReturnValueOfPureMethodIsNotUsed
@@ -81,7 +78,7 @@ public class DiscoveryExtensionsTest
 
 public class TestPullConnector : IPullTelemetry
 {
-    public void Connect(IObservable<BbEvent> stream)
+    public IObserver<BbEvent> Connect()
     {
         throw new NotImplementedException();
     }
@@ -89,7 +86,7 @@ public class TestPullConnector : IPullTelemetry
 
 public class TestPushConnector : IPushTelemetry
 {
-    public IObserver<BbEvent> Connect()
+    public IObservable<BbEvent> Connect()
     {
         throw new NotImplementedException();
     }
