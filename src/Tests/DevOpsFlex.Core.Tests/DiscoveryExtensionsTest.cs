@@ -52,7 +52,7 @@ public class DiscoveryExtensionsTest
                         }}
                     }}");
 
-                var compilationOld = CSharpCompilation.Create(
+                var compilation = CSharpCompilation.Create(
 
                     $"{nameof(DevOpsFlex)}.{nameof(DiscoveryExtensionsTest)}.InvalidConnector",
                     new[] { code },
@@ -64,7 +64,7 @@ public class DiscoveryExtensionsTest
 
                     new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
 
-                var compilationResult = compilationOld.Emit(ms);
+                var compilationResult = compilation.Emit(ms);
                 Assert.True(compilationResult.Success, $"Assembly generation failed, inspect {nameof(compilationResult)}.Diagnostics");
 
                 ms.Seek(0, SeekOrigin.Begin);
@@ -75,7 +75,6 @@ public class DiscoveryExtensionsTest
                 Action act = () => new[] { asm }.GetConnectors<IPushTelemetry>().ToList();
                 act.ShouldThrow<InvalidOperationException>();
             }
-
         }
     }
 }
