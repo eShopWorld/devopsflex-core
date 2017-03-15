@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Reactive;
+using System.Reactive.Linq;
 using System.Reflection;
 using DevOpsFlex.Core;
 using DevOpsFlex.Tests.Core;
@@ -45,7 +47,7 @@ public class DiscoveryExtensionsTest
                             {{
                             }}
 
-                            public IObserver<BbEvent> Connect()
+                            public IObservable<BbEvent> Connect()
                             {{
                                 throw new NotImplementedException();
                             }}
@@ -80,7 +82,7 @@ public class TestPullConnector : IPullTelemetry
 {
     public IObserver<BbEvent> Connect()
     {
-        throw new NotImplementedException();
+        return Observer.Create<BbEvent>(e => { });
     }
 }
 
@@ -88,6 +90,6 @@ public class TestPushConnector : IPushTelemetry
 {
     public IObservable<BbEvent> Connect()
     {
-        throw new NotImplementedException();
+        return Observable.Empty<BbEvent>();
     }
 }

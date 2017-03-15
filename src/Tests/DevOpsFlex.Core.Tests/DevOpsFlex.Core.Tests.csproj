@@ -171,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DiscoveryExtensionsTest.cs" />
+    <Compile Include="LittleBrotherPushConnectorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
