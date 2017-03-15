@@ -12,18 +12,22 @@ public class LittleBrotherPushConnectorTest
     public void Test_Connect()
     {
         var resetEvent = new ManualResetEvent(false);
+        var received = false;
         var lb = new LittleBrother();
-        var @event = new TestEvent();
+        var testEvent = new TestEvent();
+
         new TestLittleBrotherConnector().Connect().Subscribe(
             e =>
             {
-                e.Should().Be(@event);
+                e.Should().Be(testEvent);
                 resetEvent.Set();
+                received = true;
             });
 
-        lb.Publish(@event);
+        lb.Publish(testEvent);
 
-        resetEvent.WaitOne();
+        resetEvent.WaitOne(TimeSpan.FromSeconds(5));
+        received.Should().BeTrue();
     }
 }
 
