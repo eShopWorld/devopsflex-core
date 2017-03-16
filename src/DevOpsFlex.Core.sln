@@ -1,14 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevOpsFlex.Core", "DevOpsFlex.Core\DevOpsFlex.Core.csproj", "{7F388839-86D4-4EFF-B457-FA2709994D25}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F11DFCF9-569D-47D1-8875-1846F49164B4}"
 	ProjectSection(SolutionItems) = preProject
 		codecoverage.runsettings = codecoverage.runsettings
-		..\..\README.md = ..\..\README.md
+		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevOpsFlex.Core.Tests", "Tests\DevOpsFlex.Core.Tests\DevOpsFlex.Core.Tests.csproj", "{063209AC-D117-40A0-962F-6E3FD1246F02}"
