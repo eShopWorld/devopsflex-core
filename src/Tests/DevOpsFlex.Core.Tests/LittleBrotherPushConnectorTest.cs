@@ -8,8 +8,8 @@ using Xunit;
 // ReSharper disable once CheckNamespace
 public class LittleBrotherPushConnectorTest
 {
-    //public class Connect
-    //{
+    public class Connect
+    {
         [Fact, IsUnit]
         public void Test_Connect()
         {
@@ -31,7 +31,7 @@ public class LittleBrotherPushConnectorTest
             resetEvent.WaitOne(TimeSpan.FromSeconds(5));
             received.Should().BeTrue();
         }
-    //}
+    }
 }
 
 public class TestLittleBrotherConnector : LittleBrotherPushConnector
