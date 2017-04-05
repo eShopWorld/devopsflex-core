@@ -14,7 +14,7 @@
         public Exception Exception { get; set; }
 
         /// <summary>
-        /// Quick dirty way to prevent JsonConvert from attempting to serialize the exception.
+        /// Quick dirty way to prevent JsonConvert from attempting to serialize the exception. This allows for no references to Newtonsoft at this level.
         /// This could be improved by a generic IContractResolver, but we don't care singe we're not planning on keeping JsonConvert.
         /// </summary>
         /// <returns>false.</returns>
