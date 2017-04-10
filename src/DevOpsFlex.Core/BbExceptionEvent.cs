@@ -1,6 +1,7 @@
 ﻿namespace DevOpsFlex.Core
 {
     using System;
+    using Newtonsoft.Json;
 
     /// <summary>
     /// The base class from all BigBrother <see cref="Exception"/> based events that are going to be
@@ -11,14 +12,8 @@
         /// <summary>
         /// Gets and sets the raw <see cref="Exception"/> that is associated with this event.
         /// </summary>
+        [JsonIgnore]
         public Exception Exception { get; set; }
-
-        /// <summary>
-        /// Quick dirty way to prevent JsonConvert from attempting to serialize the exception. This allows for no references to Newtonsoft at this level.
-        /// This could be improved by a generic IContractResolver, but we don't care singe we're not planning on keeping JsonConvert.
-        /// </summary>
-        /// <returns>false.</returns>
-        public bool ShouldSerializeException() { return false; }
     }
 
     /// <summary>
