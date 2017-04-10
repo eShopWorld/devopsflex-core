@@ -172,6 +172,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BbEventTest.cs" />
     <Compile Include="BbExceptionEventTest.cs" />
     <Compile Include="DiscoveryExtensionsTest.cs" />
     <Compile Include="LittleBrotherPushConnectorTest.cs" />
