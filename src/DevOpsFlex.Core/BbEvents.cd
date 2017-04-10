@@ -1,38 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="DevOpsFlex.Core.BbEvent">
-    <Position X="3.25" Y="0.75" Width="1.5" />
+    <Position X="4.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>BbEvent.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DevOpsFlex.Core.BbExceptionEvent">
-    <Position X="1" Y="3" Width="1.5" />
+    <Position X="1" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAACAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
       <FileName>BbExceptionEvent.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DevOpsFlex.Core.BbExceptionEventExtensions" Collapsed="true">
-    <Position X="7.75" Y="0.75" Width="1.5" />
+    <Position X="11.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>BbExceptionEvent.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DevOpsFlex.Core.BbTelemetryEvent">
-    <Position X="3.25" Y="3" Width="1.5" />
+    <Position X="3.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>BbTelemetryEvent.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DevOpsFlex.Core.BbBigDataEvent">
-    <Position X="5.5" Y="3" Width="1.5" />
+    <Position X="5.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>BbBigDataEvent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DevOpsFlex.Core.BbMetricEvent">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BbMetricEvent.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
