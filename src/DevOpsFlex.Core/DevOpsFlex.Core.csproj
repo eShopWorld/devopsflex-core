@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BbBigDataEvent.cs" />
+    <Compile Include="BbMetricEvent.cs" />
     <Compile Include="LittleBrotherPushConnector.cs" />
     <Compile Include="BbEvent.cs" />
     <Compile Include="BbExceptionEvent.cs" />
