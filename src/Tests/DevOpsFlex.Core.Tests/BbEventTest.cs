@@ -27,7 +27,7 @@ public class BbEventTest
         }
     }
 
-    private class TestEvent : BbEvent
+    private class TestEvent : BbTelemetryEvent
     {
         public int SomeInt { get; set; }
 
