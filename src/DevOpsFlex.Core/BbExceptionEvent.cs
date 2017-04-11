@@ -7,7 +7,7 @@
     /// The base class from all BigBrother <see cref="Exception"/> based events that are going to be
     /// tracked by AI as Exception Telemetry events.
     /// </summary>
-    public class BbExceptionEvent : BbEvent
+    public class BbExceptionEvent : BbTelemetryEvent
     {
         /// <summary>
         /// Gets and sets the raw <see cref="Exception"/> that is associated with this event.
