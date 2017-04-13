@@ -77,7 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="BbEvents.cd" />
+    <None Include="BbEvents.dgml" />
     <None Include="DevOpsFlex.Core.nuspec" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
