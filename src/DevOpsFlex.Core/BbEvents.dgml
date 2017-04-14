@@ -1,47 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <DirectedGraph DataVirtualized="True" Layout="Sugiyama" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
   <Nodes>
-    <Node Id="(@1 @2 @7 Member=CorrelationVector)" Category="CodeSchema_Property" Bounds="210.655469272976,322.88,151.119061454048,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="CorrelationVector" />
-    <Node Id="(@1 @2 @7 Member=ToStringDictionary)" Category="CodeSchema_Method" Bounds="210.655469272976,266.92,132.88,25.96" CodeSchemaProperty_IsPublic="True" DelayedCrossGroupLinksState="Fetched" Label="ToStringDictionary" />
-    <Node Id="(@1 @2 Type=BbExceptionEvent Member=Exception)" Category="CodeSchema_Property" Bounds="73.1516666666666,69.9601496396716,109.692394787382,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Exception" />
-    <Node Id="@10" Category="CodeSchema_Method" Bounds="-13,316.4401,120.43,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" DelayedCrossGroupLinksState="Fetched" Label="BbBigDataEvent" />
-    <Node Id="@11" Category="CodeSchema_Method" Bounds="246.773333333333,437.88,78.8833333333333,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsInternal="True" CodeSchemaProperty_IsSpecialName="True" DelayedCrossGroupLinksState="Fetched" Label="BbEvent" />
-    <Node Id="@12" Category="CodeSchema_Method" Bounds="73.1516677729289,14.0001503603284,130.126666666667,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" DelayedCrossGroupLinksState="Fetched" Label="BbExceptionEvent" />
-    <Node Id="@13" Category="CodeSchema_Method" Bounds="342.901666666667,68.5001,112.626666666667,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" DelayedCrossGroupLinksState="Fetched" Label="BbMetricEvent" />
-    <Node Id="@14" Category="CodeSchema_Method" Bounds="210.655469272976,210.96,130.12,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" DelayedCrossGroupLinksState="Fetched" Label="BbTelemetryEvent" />
-    <Node Id="@3" Category="CodeSchema_Class" Bounds="-33,276.44,160.43,85.96" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="1" Group="Expanded" Label="BbBigDataEvent" UseManualLocation="True">
+    <Node Id="(@1 @3 @9 Member=CorrelationVector)" Category="CodeSchema_Property" Bounds="-9.23425184993737,95.6083135901631,151.119061454048,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="CorrelationVector" UseManualLocation="True" />
+    <Node Id="(@1 @3 @9 Member=ToStringDictionary)" Category="CodeSchema_Method" Bounds="-9.23425180200587,39.6482272115566,132.88,25.96" CodeSchemaProperty_IsPublic="True" DelayedCrossGroupLinksState="Fetched" Label="ToStringDictionary" UseManualLocation="True" />
+    <Node Id="(@1 @3 Type=BbExceptionEvent Member=Exception)" Category="CodeSchema_Property" Bounds="-219.692709024077,-131.31208528269,109.692394787382,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Exception" UseManualLocation="True" />
+    <Node Id="@10" Category="CodeSchema_Class" Bounds="-29.2342545648748,-56.311986409837,191.119064168985,196.9204" CodeSchemaProperty_IsPublic="True" CommonLabel="BbTelemetryEvent" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="3" Group="Expanded" Icon="CodeSchema_Class" Label="BbTelemetryEvent" UseManualLocation="True">
       <Category Ref="Category2" />
     </Node>
-    <Node Id="@4" Category="CodeSchema_Class" Bounds="226.773333333333,397.88,118.883333333333,85.96" CodeSchemaProperty_IsPublic="True" CommonLabel="BbEvent" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="1" Group="Expanded" Label="BbEvent">
+    <Node Id="@11" Category="CodeSchema_Class" Bounds="143.083537701767,-172.273920988741,151.756666666667,85.9602000000001" CodeSchemaProperty_IsPublic="True" CommonLabel="BbTimedEvent" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="1" Group="Expanded" Icon="CodeSchema_Class" Label="BbTimedEvent" SourceLocation="(Assembly=file:///C:/code/devopsflex-core/src/DevOpsFlex.Core/BbTimedEvent.cs StartLineNumber=2 StartCharacterOffset=17 EndLineNumber=2 EndCharacterOffset=29)" UseManualLocation="True">
+      <Category Ref="Category9" />
+    </Node>
+    <Node Id="@13" Category="CodeSchema_Method" Bounds="211.884915931835,94.6482983025475,120.43,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" DelayedCrossGroupLinksState="Fetched" Label="BbBigDataEvent" UseManualLocation="True" />
+    <Node Id="@14" Category="CodeSchema_Method" Bounds="104.852586816022,210.608515752963,78.8833333333333,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsInternal="True" CodeSchemaProperty_IsSpecialName="True" DelayedCrossGroupLinksState="Fetched" Label="BbEvent" UseManualLocation="True" />
+    <Node Id="@15" Category="CodeSchema_Method" Bounds="-219.692690042341,-187.272183062296,130.126666666667,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" DelayedCrossGroupLinksState="Fetched" Label="BbExceptionEvent" UseManualLocation="True" />
+    <Node Id="@16" Category="CodeSchema_Method" Bounds="-19.5659550529053,-132.272090837174,112.626666666667,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" DelayedCrossGroupLinksState="Fetched" Label="BbMetricEvent" UseManualLocation="True" />
+    <Node Id="@17" Category="CodeSchema_Method" Bounds="-9.23422616724024,-16.3118862705528,130.12,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" DelayedCrossGroupLinksState="Fetched" Label="BbTelemetryEvent" UseManualLocation="True" />
+    <Node Id="@18" Category="CodeSchema_Method" Bounds="163.083531078848,-132.273819637134,111.756666666667,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" DelayedCrossGroupLinksState="Fetched" Label="BbTimedEvent" UseManualLocation="True" />
+    <Node Id="@5" Category="CodeSchema_Class" Bounds="191.884909595423,54.6482131173104,160.43,85.9602" CodeSchemaProperty_IsPublic="True" CommonLabel="BbBigDataEvent" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="1" Group="Expanded" Icon="CodeSchema_Class" Label="BbBigDataEvent" UseManualLocation="True">
+      <Category Ref="Category2" />
+    </Node>
+    <Node Id="@6" Category="CodeSchema_Class" Bounds="84.8525756642943,170.608413910163,118.883333333333,85.9602000000001" CodeSchemaProperty_IsPublic="True" CommonLabel="BbEvent" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="1" Group="Expanded" Icon="CodeSchema_Class" Label="BbEvent" UseManualLocation="True">
       <Category Ref="Category10" />
     </Node>
-    <Node Id="@5" Category="CodeSchema_Class" Bounds="53.1516666666666,-26,170.126666666667,140.96" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="2" Group="Expanded" Label="BbExceptionEvent" UseManualLocation="True" />
-    <Node Id="@6" Category="CodeSchema_Class" Bounds="322.901666666667,28.5,152.626666666667,85.96" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="1" Group="Expanded" Label="BbMetricEvent" UseManualLocation="True" />
-    <Node Id="@8" Category="CodeSchema_Class" Bounds="190.655469272976,170.96,191.119061454048,196.92" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="3" Group="Expanded" Label="BbTelemetryEvent">
-      <Category Ref="Category2" />
+    <Node Id="@7" Category="CodeSchema_Class" Bounds="-239.692709024076,-227.27228528269,170.126669691563,140.9603" CodeSchemaProperty_IsPublic="True" CommonLabel="BbExceptionEvent" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="2" Group="Expanded" Icon="CodeSchema_Class" Label="BbExceptionEvent" UseManualLocation="True">
+      <Category Ref="Category9" />
+    </Node>
+    <Node Id="@8" Category="CodeSchema_Class" Bounds="-39.5659393421931,-172.272186729837,152.626666666667,85.9602" CodeSchemaProperty_IsPublic="True" CommonLabel="BbMetricEvent" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="1" Group="Expanded" Icon="CodeSchema_Class" Label="BbMetricEvent" UseManualLocation="True">
+      <Category Ref="Category9" />
     </Node>
   </Nodes>
   <Links>
-    <Link Source="@10" Target="@11" Category="CodeSchema_Calls" Weight="1" />
-    <Link Source="@12" Target="@14" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@10" Target="(@1 @3 @9 Member=CorrelationVector)" Category="Contains" FetchingParent="@10" />
+    <Link Source="@10" Target="(@1 @3 @9 Member=ToStringDictionary)" Category="Contains" FetchingParent="@10" />
+    <Link Source="@10" Target="@17" Category="Contains" FetchingParent="@10" />
+    <Link Source="@10" Target="@6" Category="InheritsFrom" Weight="1" />
+    <Link Source="@11" Target="@10" Category="InheritsFrom" Weight="1" />
+    <Link Source="@11" Target="@18" Category="Contains" FetchingParent="@11" />
     <Link Source="@13" Target="@14" Category="CodeSchema_Calls" Weight="1" />
-    <Link Source="@14" Target="@11" Category="CodeSchema_Calls" Weight="1" />
-    <Link Source="@3" Target="@10" Category="Contains" FetchingParent="@3" />
-    <Link Source="@3" Target="@4" Category="InheritsFrom" Weight="1" />
-    <Link Source="@4" Target="@11" Category="Contains" FetchingParent="@4" />
-    <Link Source="@5" Target="(@1 @2 Type=BbExceptionEvent Member=Exception)" Category="Contains" FetchingParent="@5" />
-    <Link Source="@5" Target="@12" Category="Contains" FetchingParent="@5" />
-    <Link Source="@5" Target="@8" Category="InheritsFrom" Weight="1" />
-    <Link Source="@6" Target="@13" Category="Contains" FetchingParent="@6" />
-    <Link Source="@6" Target="@8" Category="InheritsFrom" Weight="1" />
-    <Link Source="@8" Target="(@1 @2 @7 Member=CorrelationVector)" Category="Contains" FetchingParent="@8" />
-    <Link Source="@8" Target="(@1 @2 @7 Member=ToStringDictionary)" Category="Contains" FetchingParent="@8" />
-    <Link Source="@8" Target="@14" Category="Contains" FetchingParent="@8" />
-    <Link Source="@8" Target="@4" Category="InheritsFrom" Weight="1" />
+    <Link Source="@15" Target="@17" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@16" Target="@17" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@17" Target="@14" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@18" Target="@17" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@5" Target="@13" Category="Contains" FetchingParent="@5" />
+    <Link Source="@5" Target="@6" Category="InheritsFrom" Weight="1" />
+    <Link Source="@6" Target="@14" Category="Contains" FetchingParent="@6" />
+    <Link Source="@7" Target="(@1 @3 Type=BbExceptionEvent Member=Exception)" Category="Contains" FetchingParent="@7" />
+    <Link Source="@7" Target="@10" Category="InheritsFrom" Weight="1" />
+    <Link Source="@7" Target="@15" Category="Contains" FetchingParent="@7" />
+    <Link Source="@8" Target="@10" Category="InheritsFrom" Weight="1" />
+    <Link Source="@8" Target="@16" Category="Contains" FetchingParent="@8" />
   </Links>
   <Categories>
     <Category Id="Category10" Label="Category 10" Background="#FF672878" IsTag="True" />
     <Category Id="Category2" Label="Category 2" Background="#FF339933" IsTag="True" />
+    <Category Id="Category9" Label="Category 9" Background="#FF00539C" IsTag="True" />
     <Category Id="CodeSchema_Calls" Label="Calls" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Called By" OutgoingActionLabel="Calls" />
     <Category Id="CodeSchema_Class" Label="Class" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Classes" />
     <Category Id="CodeSchema_Member" Label="Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="Members" />
@@ -79,6 +91,7 @@
     <Property Id="Layout" DataType="System.String" />
     <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
     <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="Start Line Number" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
     <Property Id="TargetType" DataType="System.Type" />
     <Property Id="UseManualLocation" DataType="System.Boolean" />
     <Property Id="Value" DataType="System.String" />
@@ -95,21 +108,35 @@
   </QualifiedNames>
   <IdentifierAliases>
     <Alias n="1" Uri="Assembly=$(7f388839-86d4-4eff-b457-fa2709994d25.OutputPathUri)" />
-    <Alias n="2" Id="Namespace=DevOpsFlex.Core" />
-    <Alias n="3" Id="(@1 @2 Type=BbBigDataEvent)" />
-    <Alias n="4" Id="(@1 @2 Type=BbEvent)" />
-    <Alias n="5" Id="(@1 @2 Type=BbExceptionEvent)" />
-    <Alias n="6" Id="(@1 @2 Type=BbMetricEvent)" />
-    <Alias n="7" Id="Type=BbTelemetryEvent" />
-    <Alias n="8" Id="(@1 @2 @7)" />
-    <Alias n="9" Id="Member=.ctor" />
-    <Alias n="10" Id="(@1 @2 Type=BbBigDataEvent @9)" />
-    <Alias n="11" Id="(@1 @2 Type=BbEvent @9)" />
-    <Alias n="12" Id="(@1 @2 Type=BbExceptionEvent @9)" />
-    <Alias n="13" Id="(@1 @2 Type=BbMetricEvent @9)" />
-    <Alias n="14" Id="(@1 @2 @7 @9)" />
+    <Alias n="3" Id="Namespace=DevOpsFlex.Core" />
+    <Alias n="5" Id="(@1 @3 Type=BbBigDataEvent)" />
+    <Alias n="6" Id="(@1 @3 Type=BbEvent)" />
+    <Alias n="7" Id="(@1 @3 Type=BbExceptionEvent)" />
+    <Alias n="8" Id="(@1 @3 Type=BbMetricEvent)" />
+    <Alias n="9" Id="Type=BbTelemetryEvent" />
+    <Alias n="10" Id="(@1 @3 @9)" />
+    <Alias n="11" Id="(@1 @3 Type=BbTimedEvent)" />
+    <Alias n="12" Id="Member=.ctor" />
+    <Alias n="13" Id="(@1 @3 Type=BbBigDataEvent @12)" />
+    <Alias n="14" Id="(@1 @3 Type=BbEvent @12)" />
+    <Alias n="15" Id="(@1 @3 Type=BbExceptionEvent @12)" />
+    <Alias n="16" Id="(@1 @3 Type=BbMetricEvent @12)" />
+    <Alias n="17" Id="(@1 @3 @9 @12)" />
+    <Alias n="18" Id="(@1 @3 Type=BbTimedEvent @12)" />
   </IdentifierAliases>
   <Styles>
+    <Style TargetType="Node" GroupLabel="Category 3" ValueLabel="Has category">
+      <Condition Expression="HasCategory('Category3')" />
+      <Setter Property="Background" Value="#FF3EBCED" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Category 4" ValueLabel="Has category">
+      <Condition Expression="HasCategory('Category4')" />
+      <Setter Property="Background" Value="#FF1BA1E2" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Category 9" ValueLabel="Has category">
+      <Condition Expression="HasCategory('Category9')" />
+      <Setter Property="Background" Value="#FF00539C" />
+    </Style>
     <Style TargetType="Node" GroupLabel="Category 10" ValueLabel="Has category">
       <Condition Expression="HasCategory('Category10')" />
       <Setter Property="Background" Value="#FF672878" />
