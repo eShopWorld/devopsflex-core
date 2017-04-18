@@ -10,23 +10,26 @@
     public class BbTimedEvent : BbTelemetryEvent
     {
         /// <summary>
-        /// Gets and sets the START time for this event.
+        /// The START time for this event.
         /// </summary>
         [JsonIgnore]
         internal DateTime StartTime = DateTime.Now;
 
         /// <summary>
-        /// Gets and sets the END time for thie event.
+        /// The END time for thie event.
         /// </summary>
         [JsonIgnore]
-        internal DateTime EndTime;
+        internal DateTime? EndTime;
 
         /// <summary>
         /// Ends the event by marking that the process it's tracking has finished.
         /// </summary>
         public void End()
         {
-            EndTime = DateTime.Now;
+            if (EndTime == null)
+            {
+                EndTime = DateTime.Now;
+            }
         }
     }
 }

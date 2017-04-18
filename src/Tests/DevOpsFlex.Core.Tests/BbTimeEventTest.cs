@@ -37,4 +37,24 @@ public class BbTimeEventTest
             tEvent.EndTime.Should().Be(now);
         }
     }
+
+    [Fact, IsUnit]
+    public void Test_EndTime_IsGuardedForMultipleCalls()
+    {
+        using (ShimsContext.Create())
+        {
+            var now = DateTime.Now; // freeze time
+            var nowPlus10 = DateTime.Now.AddMinutes(10); // freeze time
+
+            ShimDateTime.NowGet = () => now;
+
+            var tEvent = new BbTimedEvent();
+            tEvent.End();
+
+            ShimDateTime.NowGet = () => nowPlus10;
+
+            tEvent.End();
+            tEvent.EndTime.Should().Be(now);
+        }
+    }
 }
