@@ -11,7 +11,7 @@
     <!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>eShopWorld DevOpsFlex core package</description>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>Added timed events</releaseNotes>
     <copyright>Copyright 2016</copyright>
     <tags>DevOpsFlex, Connect, Core</tags>
     <dependencies>
