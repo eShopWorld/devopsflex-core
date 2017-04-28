@@ -22,6 +22,12 @@
         internal DateTime? EndTime;
 
         /// <summary>
+        /// Gets the total elapsed processing time.
+        ///     If End() hasn't been called it will use <see cref="DateTime.Now"/> as the current end time without setting an EndTime.
+        /// </summary>
+        public TimeSpan ProcessingTime => EndTime?.Subtract(StartTime) ?? DateTime.Now.Subtract(StartTime);
+
+        /// <summary>
         /// Ends the event by marking that the process it's tracking has finished.
         /// </summary>
         public void End()

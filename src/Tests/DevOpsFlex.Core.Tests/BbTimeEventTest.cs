@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Fakes;
+using System.Security.Policy;
 using DevOpsFlex.Core;
 using DevOpsFlex.Tests.Core;
 using FluentAssertions;
@@ -44,7 +45,7 @@ public class BbTimeEventTest
         using (ShimsContext.Create())
         {
             var now = DateTime.Now; // freeze time
-            var nowPlus10 = DateTime.Now.AddMinutes(10); // freeze time
+            var nowPlus10 = DateTime.Now.AddMinutes(10); // freeze time 10 minutes later
 
             ShimDateTime.NowGet = () => now;
 
@@ -55,6 +56,44 @@ public class BbTimeEventTest
 
             tEvent.End();
             tEvent.EndTime.Should().Be(now);
+        }
+    }
+
+    public class ProcessingTime
+    {
+        [Fact, IsUnit]
+        public void Test_AfterEnd()
+        {
+            using (ShimsContext.Create())
+            {
+                var now = DateTime.Now; // freeze time
+                var nowPlus10 = DateTime.Now.AddMinutes(10); // freeze time 10 minutes later
+
+                ShimDateTime.NowGet = () => now;
+
+                var tEvent = new BbTimedEvent();
+                ShimDateTime.NowGet = () => nowPlus10;
+                tEvent.End();
+
+                tEvent.ProcessingTime.Should().BeCloseTo(TimeSpan.FromMinutes(10), 1000);
+            }
+        }
+
+        [Fact, IsUnit]
+        public void Test_BeforeEnd()
+        {
+            using (ShimsContext.Create())
+            {
+                var now = DateTime.Now; // freeze time
+                var nowPlus10 = DateTime.Now.AddMinutes(10); // freeze time 10 minutes later
+
+                ShimDateTime.NowGet = () => now;
+
+                var tEvent = new BbTimedEvent();
+                ShimDateTime.NowGet = () => nowPlus10;
+
+                tEvent.ProcessingTime.Should().BeCloseTo(TimeSpan.FromMinutes(10), 1000);
+            }
         }
     }
 }
