@@ -74,6 +74,7 @@
     <Compile Include="IPushTelemetry.cs" />
     <Compile Include="IPullTelemetry.cs" />
     <Compile Include="LittleBrother.cs" />
+    <Compile Include="ObjectReferenceEqualityComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
