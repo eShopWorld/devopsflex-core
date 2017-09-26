@@ -1,0 +1,27 @@
+﻿namespace DevOpsFlex.Core
+{
+    using System.Reflection;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Serialization;
+
+    /// <inheritdoc />
+    /// <remarks>
+    /// This resolver ignores all reference types.
+    /// </remarks>
+    public class NoReferencesJsonContractResolver : DefaultContractResolver
+    {
+        /// <inheritdoc />
+        protected override JsonProperty CreateProperty(MemberInfo member, MemberSerialization memberSerialization)
+        {
+            var prop = base.CreateProperty(member, memberSerialization);
+
+            if (prop.PropertyType.IsClass &&
+                prop.PropertyType != typeof(string))
+            {
+                prop.ShouldSerialize = obj => false;
+            }
+
+            return prop;
+        }
+    }
+}
