@@ -10,6 +10,10 @@
     /// </summary>
     public class BbExceptionEvent : BbTelemetryEvent
     {
+        /// <summary>
+        /// Initializes a new instance of <see cref="BbExceptionEvent"/>.
+        /// </summary>
+        /// <param name="exception">The source exception for this event.</param>
         public BbExceptionEvent([NotNull]Exception exception)
         {
             Exception = exception;
