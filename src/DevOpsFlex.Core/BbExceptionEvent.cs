@@ -1,6 +1,7 @@
 ﻿namespace DevOpsFlex.Core
 {
     using System;
+    using JetBrains.Annotations;
     using Newtonsoft.Json;
 
     /// <summary>
@@ -9,6 +10,11 @@
     /// </summary>
     public class BbExceptionEvent : BbTelemetryEvent
     {
+        public BbExceptionEvent([NotNull]Exception exception)
+        {
+            Exception = exception;
+        }
+
         /// <summary>
         /// Gets and sets the raw <see cref="Exception"/> that is associated with this event.
         /// </summary>
@@ -38,12 +44,9 @@
         /// <param name="exception">The original <see cref="Exception"/>.</param>
         /// <returns>The converted super class of <see cref="BbExceptionEvent"/>.</returns>
         public static T ToBbEvent<T>(this Exception exception)
-            where T : BbExceptionEvent, new()
+            where T : BbExceptionEvent
         {
-            return new T
-            {
-                Exception = exception
-            };
+            return (T) Activator.CreateInstance(typeof(T), exception);
         }
     }
 }

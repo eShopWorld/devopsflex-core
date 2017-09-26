@@ -11,7 +11,7 @@ public class BbExceptionEventTest
     [Fact, IsUnit]
     public void Ensure_ExceptionIsntSerialized()
     {
-        var json = JsonConvert.SerializeObject(new BbExceptionEvent { Exception = new Exception() });
+        var json = JsonConvert.SerializeObject(new BbExceptionEvent(new Exception()));
         var poco = JsonConvert.DeserializeObject<BbExceptionEvent>(json);
 
         poco.Exception.Should().BeNull();
