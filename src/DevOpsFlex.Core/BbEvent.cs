@@ -1,5 +1,6 @@
 ﻿namespace DevOpsFlex.Core
 {
+    using System;
     using System.Collections.Generic;
     using JetBrains.Annotations;
     using Newtonsoft.Json;
@@ -27,7 +28,19 @@
         [NotNull]
         public IDictionary<string, string> ToStringDictionary()
         {
-            return JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(this));
+            try
+            {
+                return JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(this));
+            }
+            catch (Exception)
+            {
+                return JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(this, new JsonSerializerSettings
+                {
+                    ContractResolver = new NoReferencesJsonContractResolver(),
+                    PreserveReferencesHandling = PreserveReferencesHandling.None,
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                }));
+            }
         }
 
         /// <summary>
