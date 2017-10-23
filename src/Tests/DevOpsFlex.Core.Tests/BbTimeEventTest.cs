@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Fakes;
 using DevOpsFlex.Core;
 using DevOpsFlex.Tests.Core;
 using FluentAssertions;
-using Microsoft.QualityTools.Testing.Fakes;
 using Xunit;
 
 // ReSharper disable once CheckNamespace
@@ -12,87 +10,75 @@ public class BbTimeEventTest
     [Fact, IsUnit]
     public void Test_StartTime()
     {
-        using (ShimsContext.Create())
-        {
-            var now = DateTime.Now; // freeze time
-            ShimDateTime.NowGet = () => now;
+        DateTime now = DateTime.Now;
+        BbTimedEvent.DateTimeNow = () => now;
+        var tEvent = new BbTimedEvent();
 
-            var tEvent = new BbTimedEvent();
-
-            tEvent.StartTime.Should().Be(now);
-        }
+        tEvent.StartTime.Should().Be(now);
     }
 
     [Fact, IsUnit]
     public void Test_EndTime()
     {
-        using (ShimsContext.Create())
-        {
-            var now = DateTime.Now; // freeze time
-            ShimDateTime.NowGet = () => now;
 
-            var tEvent = new BbTimedEvent();
-            tEvent.End();
+        var now = DateTime.Now; // freeze time
+        BbTimedEvent.DateTimeNow = () => now;
 
-            tEvent.EndTime.Should().Be(now);
-        }
+        var tEvent = new BbTimedEvent();
+        tEvent.End();
+
+        tEvent.EndTime.Should().Be(now);
+
     }
 
     [Fact, IsUnit]
     public void Test_EndTime_IsGuardedForMultipleCalls()
     {
-        using (ShimsContext.Create())
-        {
-            var now = DateTime.Now; // freeze time
-            var nowPlus10 = DateTime.Now.AddMinutes(10); // freeze time 10 minutes later
 
-            ShimDateTime.NowGet = () => now;
+        var now = DateTime.Now; // freeze time
+        var nowPlus10 = DateTime.Now.AddMinutes(10); // freeze time 10 minutes later
 
-            var tEvent = new BbTimedEvent();
-            tEvent.End();
+        BbTimedEvent.DateTimeNow = () => now;
 
-            ShimDateTime.NowGet = () => nowPlus10;
+        var tEvent = new BbTimedEvent();
+        tEvent.End();
 
-            tEvent.End();
-            tEvent.EndTime.Should().Be(now);
-        }
+        BbTimedEvent.DateTimeNow = () => nowPlus10;
+
+        tEvent.End();
+        tEvent.EndTime.Should().Be(now);
+
     }
 
-    public class ProcessingTime
+    [Fact, IsUnit]
+    public void Test_AfterEnd()
     {
-        [Fact, IsUnit]
-        public void Test_AfterEnd()
-        {
-            using (ShimsContext.Create())
-            {
-                var now = DateTime.Now; // freeze time
-                var nowPlus10 = DateTime.Now.AddMinutes(10); // freeze time 10 minutes later
 
-                ShimDateTime.NowGet = () => now;
+        var now = DateTime.Now; // freeze time
+        var nowPlus10 = DateTime.Now.AddMinutes(10); // freeze time 10 minutes later
 
-                var tEvent = new BbTimedEvent();
-                ShimDateTime.NowGet = () => nowPlus10;
-                tEvent.End();
+        BbTimedEvent.DateTimeNow = () => now;
 
-                tEvent.ProcessingTime.Should().BeCloseTo(TimeSpan.FromMinutes(10), 1000);
-            }
-        }
+        var tEvent = new BbTimedEvent();
+        BbTimedEvent.DateTimeNow = () => nowPlus10;
+        tEvent.End();
 
-        [Fact, IsUnit]
-        public void Test_BeforeEnd()
-        {
-            using (ShimsContext.Create())
-            {
-                var now = DateTime.Now; // freeze time
-                var nowPlus10 = DateTime.Now.AddMinutes(10); // freeze time 10 minutes later
+        tEvent.ProcessingTime.Should().BeCloseTo(TimeSpan.FromMinutes(10), 1000);
+    }
 
-                ShimDateTime.NowGet = () => now;
 
-                var tEvent = new BbTimedEvent();
-                ShimDateTime.NowGet = () => nowPlus10;
+    [Fact, IsUnit]
+    public void Test_BeforeEnd()
+    {
+        var now = DateTime.Now; // freeze time
+        var nowPlus10 = DateTime.Now.AddMinutes(10); // freeze time 10 minutes later
 
-                tEvent.ProcessingTime.Should().BeCloseTo(TimeSpan.FromMinutes(10), 1000);
-            }
-        }
+        BbTimedEvent.DateTimeNow = () => now;
+
+        var tEvent = new BbTimedEvent();
+
+        BbTimedEvent.DateTimeNow = () => nowPlus10;
+
+        tEvent.ProcessingTime.Should().BeCloseTo(TimeSpan.FromMinutes(10), 1000);
     }
 }
