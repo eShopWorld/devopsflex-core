@@ -20,7 +20,6 @@ public class BbTimeEventTest
     [Fact, IsUnit]
     public void Test_EndTime()
     {
-
         var now = DateTime.Now; // freeze time
         BbTimedEvent.DateTimeNow = () => now;
 
@@ -28,13 +27,11 @@ public class BbTimeEventTest
         tEvent.End();
 
         tEvent.EndTime.Should().Be(now);
-
     }
 
     [Fact, IsUnit]
     public void Test_EndTime_IsGuardedForMultipleCalls()
     {
-
         var now = DateTime.Now; // freeze time
         var nowPlus10 = DateTime.Now.AddMinutes(10); // freeze time 10 minutes later
 
@@ -47,13 +44,11 @@ public class BbTimeEventTest
 
         tEvent.End();
         tEvent.EndTime.Should().Be(now);
-
     }
 
     [Fact, IsUnit]
     public void Test_AfterEnd()
     {
-
         var now = DateTime.Now; // freeze time
         var nowPlus10 = DateTime.Now.AddMinutes(10); // freeze time 10 minutes later
 
@@ -65,7 +60,6 @@ public class BbTimeEventTest
 
         tEvent.ProcessingTime.Should().BeCloseTo(TimeSpan.FromMinutes(10), 1000);
     }
-
 
     [Fact, IsUnit]
     public void Test_BeforeEnd()
