@@ -13,7 +13,7 @@
         /// The START time for this event.
         /// </summary>
         [JsonIgnore]
-        internal DateTime StartTime = DateTime.Now;
+        internal DateTime StartTime = DateTimeNow.Invoke();
 
         /// <summary>
         /// The END time for thie event.
@@ -25,7 +25,12 @@
         /// Gets the total elapsed processing time.
         ///     If End() hasn't been called it will use <see cref="DateTime.Now"/> as the current end time without setting an EndTime.
         /// </summary>
-        public TimeSpan ProcessingTime => EndTime?.Subtract(StartTime) ?? DateTime.Now.Subtract(StartTime);
+        public TimeSpan ProcessingTime => EndTime?.Subtract(StartTime) ?? DateTimeNow.Invoke().Subtract(StartTime);
+
+        /// <summary>
+        /// testability delegate so that we have full control over timing aspects
+        /// </summary>
+        internal static Func<DateTime> DateTimeNow { get; set; } = () => DateTime.Now;
 
         /// <summary>
         /// Ends the event by marking that the process it's tracking has finished.
@@ -34,7 +39,7 @@
         {
             if (EndTime == null)
             {
-                EndTime = DateTime.Now;
+                EndTime = DateTimeNow.Invoke();
             }
         }
     }

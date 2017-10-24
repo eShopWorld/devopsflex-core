@@ -10,6 +10,8 @@ using FluentAssertions;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Xunit;
+using System.Runtime.Loader;
+using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
 public class DiscoveryExtensionsTest
@@ -54,15 +56,22 @@ public class DiscoveryExtensionsTest
                         }}
                     }}");
 
+
+                string refs = AppContext.GetData("TRUSTED_PLATFORM_ASSEMBLIES") as string;
+
+                List<MetadataReference> references = new List<MetadataReference>();
+                foreach (var path in refs.Split(Path.PathSeparator))
+                {
+                    references.Add(MetadataReference.CreateFromFile(path));
+                }
+
                 var compilation = CSharpCompilation.Create(
                     $"{nameof(DevOpsFlex)}.{nameof(DiscoveryExtensionsTest)}.InvalidConnector",
                     new[] { code },
-                    new[]
-                    {
-                        MetadataReference.CreateFromFile(typeof(object).Assembly.Location),
-                        MetadataReference.CreateFromFile(typeof(IPushTelemetry).Assembly.Location)
-                    },
+                    references,
                     new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
+
+
 
                 var compilationResult = compilation.Emit(ms);
                 Assert.True(compilationResult.Success, $"Assembly generation failed, inspect {nameof(compilationResult)}.Diagnostics");
