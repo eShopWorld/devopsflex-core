@@ -10,7 +10,6 @@ using FluentAssertions;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Xunit;
-using System.Runtime.Loader;
 using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
