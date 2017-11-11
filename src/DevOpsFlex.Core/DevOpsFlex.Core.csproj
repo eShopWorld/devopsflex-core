@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <IsPackable>True</IsPackable>
     <PackageId>DevOpsFlex.Core</PackageId>
     <Version>1.0.6</Version>
     <Authors>David Rodrigues</Authors>
@@ -13,7 +14,7 @@
     <Copyright>Copyright 2016</Copyright>
     <PackageTags>DevOpsFlex, Connect, Core</PackageTags>
     <PackageReleaseNotes>refactored to netstandard</PackageReleaseNotes>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IncludeSource>True</IncludeSource>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
