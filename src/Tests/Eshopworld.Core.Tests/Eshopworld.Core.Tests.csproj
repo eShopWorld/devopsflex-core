@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\DevOpsFlex.Core\DevOpsFlex.Core.csproj" />
+    <ProjectReference Include="..\..\Eshopworld.Core\Eshopworld.Core.csproj" />
   </ItemGroup>
 
 </Project>
