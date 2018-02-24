@@ -3,17 +3,17 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <IsPackable>True</IsPackable>
-    <PackageId>DevOpsFlex.Core</PackageId>
-    <Version>1.0.6</Version>
+    <PackageId>Eshopworld.Core</PackageId>
+    <Version>1.0.0</Version>
     <Authors>David Rodrigues</Authors>
     <Company>eShopWorld</Company>
-    <PackageLicenseUrl>https://github.com/eShopWorld/devopsflex-core/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/eShopWorld/devopsflex-core</PackageProjectUrl>
-    <Description>eShopWorld DevOpsFlex core package</Description>
-    <Product>DevOpsFlex.Core</Product>
-    <Copyright>Copyright 2016</Copyright>
-    <PackageTags>DevOpsFlex, Connect, Core</PackageTags>
-    <PackageReleaseNotes>refactored to netstandard</PackageReleaseNotes>
+    <PackageLicenseUrl>https://github.com/eShopWorld/core/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/eShopWorld/core</PackageProjectUrl>
+    <Description>eShopWorld core package</Description>
+    <Product>Eshopworld.Core</Product>
+    <Copyright>Copyright 2018</Copyright>
+    <PackageTags>Eshopworld, Telemetry, Core</PackageTags>
+    <PackageReleaseNotes></PackageReleaseNotes>
     <IncludeSource>True</IncludeSource>
   </PropertyGroup>
 
