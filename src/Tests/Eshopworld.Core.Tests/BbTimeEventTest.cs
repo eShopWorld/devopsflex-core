@@ -1,6 +1,6 @@
 ﻿using System;
 using DevOpsFlex.Core;
-using DevOpsFlex.Tests.Core;
+using Eshopworld.Tests.Core;
 using FluentAssertions;
 using Xunit;
 
