@@ -64,7 +64,5 @@ public class BbEventTest
         public int SomeInt { get; set; }
 
         public string SomeString { get; set; }
-
-        public TestEvent BadReference => new TestEvent();
     }
 }
