@@ -1,7 +1,6 @@
-﻿namespace DevOpsFlex.Telemetry
+﻿namespace Eshopworld.Core
 {
     using System;
-    using Core;
     using JetBrains.Annotations;
 
     /// <summary>

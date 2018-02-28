@@ -1,11 +1,13 @@
 ﻿using System;
-using DevOpsFlex.Core;
+using System.Diagnostics.CodeAnalysis;
+using Eshopworld.Core;
 using Eshopworld.Tests.Core;
 using FluentAssertions;
 using Newtonsoft.Json;
 using Xunit;
 
 // ReSharper disable once CheckNamespace
+[ExcludeFromCodeCoverage]
 public class BbEventTest
 {
     public class ToStringDictionary

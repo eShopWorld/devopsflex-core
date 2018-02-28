@@ -15,6 +15,7 @@
     <PackageTags>Eshopworld, Telemetry, Core</PackageTags>
     <PackageReleaseNotes></PackageReleaseNotes>
     <IncludeSource>True</IncludeSource>
+    <DebugType>Full</DebugType>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

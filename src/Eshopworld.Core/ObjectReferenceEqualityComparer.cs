@@ -1,4 +1,4 @@
-﻿namespace DevOpsFlex.Core
+﻿namespace Eshopworld.Core
 {
     using System.Collections.Generic;
     using System.Runtime.CompilerServices;

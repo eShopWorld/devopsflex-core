@@ -1,4 +1,4 @@
-﻿namespace DevOpsFlex.Core
+﻿namespace Eshopworld.Core
 {
     /// <summary>
     /// The base class from all BigBrother metric based events that are going to be

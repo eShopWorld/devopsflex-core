@@ -1,4 +1,4 @@
-﻿namespace DevOpsFlex.Core
+﻿namespace Eshopworld.Core
 {
     using System.Reflection;
     using Newtonsoft.Json;
