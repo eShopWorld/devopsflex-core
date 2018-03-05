@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<AnalyseParams>
-  <TargetExecutable>..\packages\xunit.runner.console.2.3.1\tools\net452\xunit.console.exe</TargetExecutable>
-  <TargetArguments>..\Tests\Eshopworld.Core.Tests\bin\Debug\net461\Eshopworld.Core.Tests.dll</TargetArguments>
-  <Output>AppCoverageReport.html</Output>
-  <ReportType>html</ReportType>
-</AnalyseParams>
