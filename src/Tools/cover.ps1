@@ -1,0 +1,1 @@
+﻿& ..\packages\JetBrains.dotCover.CommandLineTools.2017.3.2\tools\dotCover.exe analyze coverage.xml
