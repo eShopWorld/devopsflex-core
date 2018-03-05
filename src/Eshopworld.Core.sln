@@ -13,8 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eshopworld.Core", "Eshopwor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eshopworld.Core.Tests", "Tests\Eshopworld.Core.Tests\Eshopworld.Core.Tests.csproj", "{1345F026-2743-4D6F-96AD-9905FDF1AC78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools", "Tools\Tools.csproj", "{6F922236-CFF6-4DDC-827E-E3682CEE62FE}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{1345F026-2743-4D6F-96AD-9905FDF1AC78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1345F026-2743-4D6F-96AD-9905FDF1AC78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1345F026-2743-4D6F-96AD-9905FDF1AC78}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6F922236-CFF6-4DDC-827E-E3682CEE62FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6F922236-CFF6-4DDC-827E-E3682CEE62FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6F922236-CFF6-4DDC-827E-E3682CEE62FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6F922236-CFF6-4DDC-827E-E3682CEE62FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
