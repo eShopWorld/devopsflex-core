@@ -1,11 +1,9 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using Eshopworld.Core;
+﻿using Eshopworld.Core;
 using Eshopworld.Tests.Core;
 using FluentAssertions;
 using Xunit;
 
 // ReSharper disable once CheckNamespace
-[ExcludeFromCodeCoverage]
 public class ObjectReferenceEqualityComparerTest
 {
     public new class Equals

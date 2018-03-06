@@ -1,6 +1,6 @@
 ﻿namespace Eshopworld.Core
 {
-    using System;
+    using System.Runtime.CompilerServices;
     using JetBrains.Annotations;
 
     /// <summary>
@@ -12,8 +12,47 @@
         /// Publishes a <see cref="BbEvent"/> through the pipeline.
         /// </summary>
         /// <param name="bbEvent">The event that we want to publish.</param>
-        /// <param name="correlation">The correlation handle if you want to correlate events</param>
-        void Publish([NotNull]BbEvent bbEvent, object correlation = null);
+        /// <param name="calleremberName">
+        /// This should be populated by <see cref="System.Runtime.CompilerServices"/>, do not populate this manually.
+        /// The method or property name of the caller to the method.
+        /// </param>
+        /// <param name="callerFilePath">
+        /// This should be populated by <see cref="System.Runtime.CompilerServices"/>, do not populate this manually.
+        /// The full path of the source file that contains the caller. This is the file path at the time of compile.
+        /// </param>
+        /// <param name="callerLineNumber">
+        /// This should be populated by <see cref="System.Runtime.CompilerServices"/>, do not populate this manually.
+        /// The line number in the source file at which the method is called.
+        /// </param>
+        void Publish(
+            BbEvent bbEvent,
+            [CallerMemberName] string calleremberName = "",
+            [CallerFilePath] string callerFilePath = "",
+            [CallerLineNumber] int callerLineNumber = -1);
+
+        /// <summary>
+        /// Publishes an anonymous class through the pipeline.
+        /// </summary>
+        /// <param name="event">The anonymous event that we want to publish.</param>
+        /// <param name="eventName">The name that we want to give to the anonymous event.</param>
+        /// <param name="calleremberName">
+        /// This should be populated by <see cref="System.Runtime.CompilerServices"/>, do not populate this manually.
+        /// The method or property name of the caller to the method.
+        /// </param>
+        /// <param name="callerFilePath">
+        /// This should be populated by <see cref="System.Runtime.CompilerServices"/>, do not populate this manually.
+        /// The full path of the source file that contains the caller. This is the file path at the time of compile.
+        /// </param>
+        /// <param name="callerLineNumber">
+        /// This should be populated by <see cref="System.Runtime.CompilerServices"/>, do not populate this manually.
+        /// The line number in the source file at which the method is called.
+        /// </param>
+        void Publish(
+            object @event,
+            string eventName = null,
+            [CallerMemberName] string calleremberName = "",
+            [CallerFilePath] string callerFilePath = "",
+            [CallerLineNumber] int callerLineNumber = -1);
 
         /// <summary>
         /// Forces the telemetry channel to be in developer mode, where it will instantly push
@@ -22,30 +61,11 @@
         [NotNull] IBigBrother DeveloperMode();
 
         /// <summary>
-        /// Creates a strict correlation handle for synchronous correlation.
-        /// </summary>
-        /// <returns>The correlation handle as an <see cref="IDisposable"/>.</returns>
-        [NotNull] IDisposable CreateCorrelation();
-
-        /// <summary>
-        /// Gets the associated <see cref="string"/> Vector to the given handle.
-        /// </summary>
-        /// <param name="handle">The handle used to correlate events.</param>
-        /// <returns>The correlation Vector as a <see cref="string"/>, or null if your handle can't be found.</returns>
-        [CanBeNull] string GetCorrelationVector([NotNull] object handle);
-
-        /// <summary>
         /// Flush out all telemetry clients, both the external and the internal one.
         /// </summary>
         /// <remarks>
         /// There is internal telemetry associated with calling this method to prevent bad usage.
         /// </remarks>
         void Flush();
-
-        /// <summary>
-        /// Sets the ammount of minutes to keep a lose correlation object reference alive.
-        /// </summary>
-        /// <param name="span">The <see cref="TimeSpan"/> to keep a lose correlation handle alive.</param>
-        void SetCorrelationKeepAlive(TimeSpan span);
     }
 }
