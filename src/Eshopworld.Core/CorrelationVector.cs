@@ -13,17 +13,15 @@
 
         internal int CurrentDimension { get; set; } = 1;
 
-        internal CorrelationVector Initialize()
+        internal void Initialize()
         {
             Id = Convert.ToBase64String(Encoding.UTF8.GetBytes(Guid.NewGuid().ToString()));
-            return this;
         }
 
-        internal CorrelationVector Initialize(string vector)
+        internal void Initialize(string vector)
         {
             Id = vector.Substring(0, vector.IndexOf(".", StringComparison.Ordinal));
             PreviousDimensions = vector.Substring(vector.IndexOf(".", StringComparison.Ordinal), vector.Length - vector.IndexOf(".", StringComparison.Ordinal));
-            return this;
         }
 
         internal void CheckInitialized()
