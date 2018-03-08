@@ -26,7 +26,7 @@
         /// </summary>
         /// <returns>The converted <see cref="IDictionary{String, String}"/>.</returns>
         [NotNull]
-        public IDictionary<string, string> ToStringDictionary()
+        public virtual IDictionary<string, string> ToStringDictionary()
         {
             try
             {
@@ -57,7 +57,8 @@
                 if (replace)
                     target[key] = properties[key];
                 else
-                    target.Add(key, properties[key]);
+                    if (!target.ContainsKey(key))
+                        target.Add(key, properties[key]);
             }
         }
     }
