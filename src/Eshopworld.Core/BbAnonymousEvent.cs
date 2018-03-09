@@ -12,7 +12,7 @@
         /// Initializes a new instance of <see cref="BbAnonymousEvent"/>.
         /// </summary>
         /// <param name="payload"></param>
-        internal BbAnonymousEvent(object payload)
+        internal BbAnonymousEvent([NotNull] object payload)
         {
             Payload = payload;
         }
@@ -20,11 +20,11 @@
         /// <summary>
         /// Gets and sets the name of the event being pushed.
         /// </summary>
-        [NotNull] public string Name => CallerMemberName;
+        [NotNull] internal string Name => CallerMemberName;
 
         /// <summary>
         /// Gets and sets the anonynimous class as an <see cref="object"/> that originated this event.
         /// </summary>
-        [NotNull] public object Payload { get; }
+        [NotNull] internal object Payload { get; }
     }
 }

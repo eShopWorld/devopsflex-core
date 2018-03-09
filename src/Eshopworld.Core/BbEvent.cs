@@ -26,7 +26,7 @@
         /// </summary>
         /// <returns>The converted <see cref="IDictionary{String, String}"/>.</returns>
         [NotNull]
-        public virtual IDictionary<string, string> ToStringDictionary()
+        internal virtual IDictionary<string, string> ToStringDictionary()
         {
             try
             {
@@ -48,7 +48,7 @@
         /// </summary>
         /// <param name="target">The target <see cref="IDictionary{String, String}"/>.</param>
         /// <param name="replace">true if we want to replace previously existing keys, false otherwise. If false and the key already exists, this method will throw.</param>
-        public void CopyPropertiesInto(IDictionary<string, string> target, bool replace = true)
+        internal void CopyPropertiesInto(IDictionary<string, string> target, bool replace = true)
         {
             var properties = ToStringDictionary();
 

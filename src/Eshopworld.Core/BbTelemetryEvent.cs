@@ -9,16 +9,16 @@
         /// <summary>
         /// Gets and sets the method or property name of the caller to the method.
         /// </summary>
-        public string CallerMemberName { get; set; }
+        internal string CallerMemberName { get; set; }
 
         /// <summary>
         /// Gets and sets the full path of the source file that contains the caller. This is the file path at the time of compile.
         /// </summary>
-        public string CallerFilePath { get; set; }
+        internal string CallerFilePath { get; set; }
 
         /// <summary>
         /// Gets and sets the line number in the source file at which the method is called.
         /// </summary>
-        public string CallerLineNumber { get; set; }
+        internal string CallerLineNumber { get; set; }
     }
 }
