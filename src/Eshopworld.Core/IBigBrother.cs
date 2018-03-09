@@ -34,7 +34,6 @@
         /// Publishes an anonymous class through the pipeline.
         /// </summary>
         /// <param name="event">The anonymous event that we want to publish.</param>
-        /// <param name="eventName">The name that we want to give to the anonymous event.</param>
         /// <param name="calleremberName">
         /// This should be populated by <see cref="System.Runtime.CompilerServices"/>, do not populate this manually.
         /// The method or property name of the caller to the method.
@@ -49,7 +48,6 @@
         /// </param>
         void Publish(
             object @event,
-            string eventName = null,
             [CallerMemberName] string calleremberName = "",
             [CallerFilePath] string callerFilePath = "",
             [CallerLineNumber] int callerLineNumber = -1);
