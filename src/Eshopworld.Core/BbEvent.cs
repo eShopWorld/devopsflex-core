@@ -25,8 +25,7 @@
         /// Converts this POCO to a <see cref="IDictionary{TKey,TValue}"/> by using JSonConvert twice (both directions).
         /// </summary>
         /// <returns>The converted <see cref="IDictionary{String, String}"/>.</returns>
-        [NotNull]
-        internal virtual IDictionary<string, string> ToStringDictionary()
+        [NotNull] internal virtual IDictionary<string, string> ToStringDictionary()
         {
             try
             {
@@ -34,12 +33,13 @@
             }
             catch (Exception)
             {
-                return JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(this, new JsonSerializerSettings
-                {
-                    ContractResolver = new NoReferencesJsonContractResolver(),
-                    PreserveReferencesHandling = PreserveReferencesHandling.None,
-                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-                }));
+                return JsonConvert.DeserializeObject<Dictionary<string, string>>(
+                    JsonConvert.SerializeObject(this, new JsonSerializerSettings
+                    {
+                        ContractResolver = new NoReferencesJsonContractResolver(),
+                        PreserveReferencesHandling = PreserveReferencesHandling.None,
+                        ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                    }));
             }
         }
 

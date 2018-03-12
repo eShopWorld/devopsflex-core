@@ -19,6 +19,6 @@
         /// <summary>
         /// Gets and sets the line number in the source file at which the method is called.
         /// </summary>
-        internal string CallerLineNumber { get; set; }
+        internal int CallerLineNumber { get; set; }
     }
 }

@@ -1,6 +1,9 @@
 ﻿namespace Eshopworld.Core
 {
+    using System;
+    using System.Collections.Generic;
     using JetBrains.Annotations;
+    using Newtonsoft.Json;
 
     /// <summary>
     /// The base class from all BigBrother anonymous class based events that are going to be
@@ -26,5 +29,27 @@
         /// Gets and sets the anonynimous class as an <see cref="object"/> that originated this event.
         /// </summary>
         [NotNull] internal object Payload { get; }
+
+        /// <summary>
+        /// Converts the anonymous payload to a <see cref="IDictionary{TKey,TValue}"/> by using JSonConvert twice (both directions).
+        /// </summary>
+        /// <returns>The converted <see cref="IDictionary{String, String}"/>.</returns>
+        internal override IDictionary<string, string> ToStringDictionary()
+        {
+            try
+            {
+                return JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(Payload));
+            }
+            catch (Exception)
+            {
+                return JsonConvert.DeserializeObject<Dictionary<string, string>>(
+                    JsonConvert.SerializeObject(Payload, new JsonSerializerSettings
+                    {
+                        ContractResolver = new NoReferencesJsonContractResolver(),
+                        PreserveReferencesHandling = PreserveReferencesHandling.None,
+                        ReferenceLoopHandling = ReferenceLoopHandling.Error
+                    }));
+            }
+        }
     }
 }
