@@ -25,7 +25,7 @@
         /// The line number in the source file at which the method is called.
         /// </param>
         void Publish(
-            BbEvent bbEvent,
+            [NotNull] BbEvent bbEvent,
             [CallerMemberName] string calleremberName = "",
             [CallerFilePath] string callerFilePath = "",
             [CallerLineNumber] int callerLineNumber = -1);
@@ -47,7 +47,7 @@
         /// The line number in the source file at which the method is called.
         /// </param>
         void Publish(
-            object @event,
+            [NotNull] object @event,
             [CallerMemberName] string calleremberName = "",
             [CallerFilePath] string callerFilePath = "",
             [CallerLineNumber] int callerLineNumber = -1);
