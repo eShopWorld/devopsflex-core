@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using JetBrains.Annotations;
     using Newtonsoft.Json;
 
@@ -21,14 +22,15 @@
         }
 
         /// <summary>
-        /// Gets and sets the name of the event being pushed.
-        /// </summary>
-        [NotNull] internal string Name => CallerMemberName;
-
-        /// <summary>
         /// Gets and sets the anonynimous class as an <see cref="object"/> that originated this event.
         /// </summary>
+        [JsonIgnore]
         [NotNull] internal object Payload { get; }
+
+        /// <summary>
+        /// Always returs true since this is indeed an anonymous event.
+        /// </summary>
+        public bool IsAnonymous => true;
 
         /// <summary>
         /// Converts the anonymous payload to a <see cref="IDictionary{TKey,TValue}"/> by using JSonConvert twice (both directions).
@@ -38,17 +40,21 @@
         {
             try
             {
-                return JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(Payload));
+                return JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(Payload))
+                                  .Union(base.ToStringDictionary())
+                                  .ToDictionary(k => k.Key, v => v.Value);
             }
             catch (Exception)
             {
                 return JsonConvert.DeserializeObject<Dictionary<string, string>>(
-                    JsonConvert.SerializeObject(Payload, new JsonSerializerSettings
-                    {
-                        ContractResolver = new NoReferencesJsonContractResolver(),
-                        PreserveReferencesHandling = PreserveReferencesHandling.None,
-                        ReferenceLoopHandling = ReferenceLoopHandling.Error
-                    }));
+                                      JsonConvert.SerializeObject(Payload, new JsonSerializerSettings
+                                      {
+                                          ContractResolver = new NoReferencesJsonContractResolver(),
+                                          PreserveReferencesHandling = PreserveReferencesHandling.None,
+                                          ReferenceLoopHandling = ReferenceLoopHandling.Error
+                                      }))
+                                  .Union(base.ToStringDictionary())
+                                  .ToDictionary(k => k.Key, v => v.Value);
             }
         }
     }
