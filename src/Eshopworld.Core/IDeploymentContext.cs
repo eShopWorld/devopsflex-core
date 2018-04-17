@@ -12,6 +12,6 @@ namespace Eshopworld.Core
         /// <summary>
         /// list of regions in hierarchical order
         /// </summary>
-        IEnumerable<string> RegionsHierarchy { get; }
+        IEnumerable<string> PreferredRegions { get; }
     }
 }
