@@ -15,8 +15,7 @@
         {
             var prop = base.CreateProperty(member, memberSerialization);
 
-            if (prop.PropertyType.IsClass &&
-                prop.PropertyType != typeof(string))
+            if (prop.PropertyType.IsClass && prop.PropertyType != typeof(string) || prop.PropertyType.IsInterface)
             {
                 prop.ShouldSerialize = obj => false;
             }
