@@ -3,10 +3,10 @@
   <PropertyGroup>
 
     <Version>1.1.0</Version>
+    <PackageReleaseNotes>Deployment context established</PackageReleaseNotes>
 
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyTitle>Eshopworld.Core .Net Standard 2.0</AssemblyTitle>
-    <WarningsAsErrors>true</WarningsAsErrors>
+    <LangVersion>latest</LangVersion>
 
     <IsPackable>True</IsPackable>
     <PackageId>Eshopworld.Core</PackageId>
@@ -18,7 +18,6 @@
     <Product>Eshopworld.Core</Product>
     <Copyright>Copyright 2018</Copyright>
     <PackageTags>Eshopworld, Telemetry, Core</PackageTags>
-    <PackageReleaseNotes>Deployment context established</PackageReleaseNotes>
 
     <IncludeSource>True</IncludeSource>
     <DebugType>Full</DebugType>
