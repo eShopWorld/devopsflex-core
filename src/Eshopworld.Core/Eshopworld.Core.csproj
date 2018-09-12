@@ -1,8 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
 
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
+    <PackageReleaseNotes>Added topic operations to messaging contracts</PackageReleaseNotes>
 
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyTitle>Eshopworld.Core .Net Standard 2.0</AssemblyTitle>
@@ -18,7 +19,6 @@
     <Product>Eshopworld.Core</Product>
     <Copyright>Copyright 2018</Copyright>
     <PackageTags>Eshopworld, Telemetry, Core</PackageTags>
-    <PackageReleaseNotes>Deployment context established</PackageReleaseNotes>
 
     <IncludeSource>True</IncludeSource>
     <DebugType>Full</DebugType>
