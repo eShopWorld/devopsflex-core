@@ -30,6 +30,9 @@
         Task Publish<T>(T @event) where T : class;
     }
 
+    /// <summary>
+    /// Contract that provides operations to cancel the pooling of either queues or topic subscriptions for reading events and messages.
+    /// </summary>
     public interface ICancelReceive
     {
         /// <summary>
