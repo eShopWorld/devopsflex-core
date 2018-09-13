@@ -30,11 +30,48 @@
         Task Publish<T>(T @event) where T : class;
     }
 
+
     /// <summary>
-    /// Contract that provides operations to cancel the pooling of either queues or topic subscriptions for reading events and messages.
+    /// Contract that provides operations at the message or event level.
     /// </summary>
-    public interface ICancelReceive
+    public interface IMessageOperations
     {
+        /// <summary>
+        /// Creates a perpetual lock on a message by continuously renewing it's lock.
+        /// This is usually created at the start of a handler so that we guarantee that we still have a valid lock
+        /// and we retain that lock until we finish handling the message.
+        /// </summary>
+        /// <param name="message">The message that we want to create the lock on.</param>
+        /// <returns>The async <see cref="Task"/> wrapper</returns>        Task Lock<T>(T message) where T : class;
+        Task Lock<T>(T message) where T : class;
+
+        /// <summary>
+        /// Completes a message by doing the actual READ from the queue.
+        /// </summary>
+        /// <param name="message">The message we want to complete.</param>
+        /// <returns>The async <see cref="Task"/> wrapper</returns>
+        Task Complete<T>(T message) where T : class;
+
+        /// <summary>
+        /// Abandons a message by returning it to the queue.
+        /// </summary>
+        /// <param name="message">The message we want to abandon.</param>
+        /// <returns>The async <see cref="Task"/> wrapper</returns>
+        Task Abandon<T>(T message) where T : class;
+
+        /// <summary>
+        /// Errors a message by moving it specifically to the error queue.
+        /// </summary>
+        /// <param name="message">The message that we want to move to the error queue.</param>
+        /// <returns>The async <see cref="Task"/> wrapper</returns>
+        Task Error<T>(T message) where T : class;
+
+        /// <summary>
+        /// Sets the size of the message batch during receives.
+        /// </summary>
+        /// <param name="batchSize">The size of the batch when reading for a queue - used as the pre-fetch parameter of the </param>
+        void SetBatchSize<T>(int batchSize) where T : class;
+
         /// <summary>
         /// Stops receiving a message or event type by disabling the read pooling on the a message queue or topic subscription.
         /// </summary>
@@ -45,7 +82,7 @@
     /// <summary>
     /// Contract that provides a simple way to send and receive messages through callbacks.
     /// </summary>
-    public interface IDoMessages : ISendMessages, ICancelReceive
+    public interface IDoMessages : ISendMessages, IMessageOperations
     {
         /// <summary>
         /// Sets up a call back for receiving any message of type <typeparamref name="T"/>.
@@ -61,7 +98,7 @@
     /// <summary>
     /// Contract that provides a simple way to send and receive events through callbacks.
     /// </summary>
-    public interface IDoPubSub : IPublishEvents, ICancelReceive
+    public interface IDoPubSub : IPublishEvents, IMessageOperations
     {
         /// <summary>
         /// Sets up a call back for receiving any event of type <typeparamref name="T"/>.
@@ -78,7 +115,7 @@
     /// <summary>
     /// Contract that exposes a reactive way to receive and send messages.
     /// </summary>
-    public interface IDoReactiveMessages : ISendMessages, ICancelReceive
+    public interface IDoReactiveMessages : ISendMessages, IMessageOperations
     {
         /// <summary>
         /// Setups up the required receive pipeline for the given message type and returns a reactive
@@ -92,7 +129,7 @@
     /// <summary>
     /// Contract that exposes a reactive way to receive and send messages.
     /// </summary>
-    public interface IDoReactiveEvents : ISendMessages, ICancelReceive
+    public interface IDoReactiveEvents : ISendMessages, IMessageOperations
     {
         /// <summary>
         /// Setups up the required receive pipeline for the given event type and returns a reactive
