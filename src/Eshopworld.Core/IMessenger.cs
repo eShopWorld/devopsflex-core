@@ -122,6 +122,7 @@
         /// <see cref="IObservable{T}"/> that you can plug into.
         /// </summary>
         /// <typeparam name="T">The type of the message we want the reactive pipeline for.</typeparam>
+        /// <param name="batchSize">The size of the batch when reading for a queue - used as the pre-fetch parameter of the </param>
         /// <returns>The typed <see cref="IObservable{T}"/> that you can plug into.</returns>
         IObservable<T> GetMessageObservable<T>(int batchSize = 10) where T : class;
     }
