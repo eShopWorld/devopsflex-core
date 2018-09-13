@@ -42,7 +42,7 @@
         /// and we retain that lock until we finish handling the message.
         /// </summary>
         /// <param name="message">The message that we want to create the lock on.</param>
-        /// <returns>The async <see cref="Task"/> wrapper</returns>        Task Lock<T>(T message) where T : class;
+        /// <returns>The async <see cref="Task"/> wrapper</returns>
         Task Lock<T>(T message) where T : class;
 
         /// <summary>
