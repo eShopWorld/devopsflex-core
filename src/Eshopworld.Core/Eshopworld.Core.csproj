@@ -2,8 +2,8 @@
 
   <PropertyGroup>
 
-    <Version>1.1.0</Version>
-    <PackageReleaseNotes>Deployment context established</PackageReleaseNotes>
+    <Version>1.1.1</Version>
+    <PackageReleaseNotes>Added topic operations to messaging contracts</PackageReleaseNotes>
 
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
