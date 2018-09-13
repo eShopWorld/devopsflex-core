@@ -4,8 +4,8 @@
     using System.Runtime.CompilerServices;
 
     /// <summary>
-    /// A generic object comparerer that would only use object's reference, 
-    /// ignoring any <see cref="System.IEquatable{T}"/> or <see cref="object.Equals(object)"/>  overrides.
+    /// A generic object comparer that would only use object's reference, 
+    ///     ignoring any <see cref="System.IEquatable{T}"/> or <see cref="object.Equals(object)"/>  overrides.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class ObjectReferenceEqualityComparer<T> : EqualityComparer<T>
