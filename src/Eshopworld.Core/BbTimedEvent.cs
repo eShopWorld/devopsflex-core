@@ -25,6 +25,7 @@
         /// Gets the total elapsed processing time.
         ///     If End() hasn't been called it will use <see cref="DateTime.Now"/> as the current end time without setting an EndTime.
         /// </summary>
+        [JsonIgnore]
         public TimeSpan ProcessingTime => EndTime?.Subtract(StartTime) ?? DateTimeNow.Invoke().Subtract(StartTime);
 
         /// <summary>

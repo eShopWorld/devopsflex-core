@@ -22,13 +22,13 @@
         }
 
         /// <summary>
-        /// Gets and sets the anonynimous class as an <see cref="object"/> that originated this event.
+        /// Gets and sets the anonymous class as an <see cref="object"/> that originated this event.
         /// </summary>
         [JsonIgnore]
         [NotNull] internal object Payload { get; }
 
         /// <summary>
-        /// Always returs true since this is indeed an anonymous event.
+        /// Always returns true since this is indeed an anonymous event.
         /// </summary>
         public bool IsAnonymous => true;
 
