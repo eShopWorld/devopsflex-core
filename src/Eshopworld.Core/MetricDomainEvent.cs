@@ -4,7 +4,7 @@
     /// The base class from all BigBrother metric based events that are going to be
     /// tracked by AI as Telemetry Events.
     /// </summary>
-    public class BbMetricEvent : BbTelemetryEvent
+    public class MetricDomainEvent : DomainEvent
     {
         /// <summary>
         /// Gets and sets the name of the metric being pushed.

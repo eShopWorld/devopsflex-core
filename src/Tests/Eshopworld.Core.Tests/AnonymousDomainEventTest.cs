@@ -4,7 +4,7 @@ using FluentAssertions;
 using Xunit;
 
 // ReSharper disable once CheckNamespace
-public class BbAnonymousEventTest
+public class AnonymousDomainEventTest
 {
     public class ToStringDictionary
     {
@@ -18,17 +18,17 @@ public class BbAnonymousEventTest
                 Enum = AnonymousTestEnum.SomeValue
             };
 
-            var anonymousEvent = new BbAnonymousEvent(payload);
+            var anonymousEvent = new AnonymousDomainEvent(payload);
 
             var result = anonymousEvent.ToStringDictionary();
 
             result[nameof(payload.Name)].Should().Be(payload.Name);
             result[nameof(payload.Value)].Should().Be(payload.Value.ToString());
             result[nameof(payload.Enum)].Should().Be(((int) payload.Enum).ToString());
-            result[nameof(BbAnonymousEvent.IsAnonymous)].Should().Be(true.ToString().ToLowerInvariant());
-            result.ContainsKey(nameof(BbAnonymousEvent.CallerMemberName)).Should().BeTrue();
-            result.ContainsKey(nameof(BbAnonymousEvent.CallerFilePath)).Should().BeTrue();
-            result.ContainsKey(nameof(BbAnonymousEvent.CallerLineNumber)).Should().BeTrue();
+            result[nameof(AnonymousDomainEvent.IsAnonymous)].Should().Be(true.ToString().ToLowerInvariant());
+            result.ContainsKey(nameof(AnonymousDomainEvent.CallerMemberName)).Should().BeTrue();
+            result.ContainsKey(nameof(AnonymousDomainEvent.CallerFilePath)).Should().BeTrue();
+            result.ContainsKey(nameof(AnonymousDomainEvent.CallerLineNumber)).Should().BeTrue();
         }
 
         [Fact, IsUnit]
@@ -46,7 +46,7 @@ public class BbAnonymousEventTest
                 }
             };
 
-            var anonymousEvent = new BbAnonymousEvent(payload);
+            var anonymousEvent = new AnonymousDomainEvent(payload);
 
             var result = anonymousEvent.ToStringDictionary();
 
@@ -54,10 +54,10 @@ public class BbAnonymousEventTest
             result[nameof(payload.Value)].Should().Be(payload.Value.ToString());
             result[nameof(payload.Enum)].Should().Be(((int)payload.Enum).ToString());
             result.ContainsKey(nameof(payload.AReference)).Should().BeFalse();
-            result[nameof(BbAnonymousEvent.IsAnonymous)].Should().Be(true.ToString().ToLowerInvariant());
-            result.ContainsKey(nameof(BbAnonymousEvent.CallerMemberName)).Should().BeTrue();
-            result.ContainsKey(nameof(BbAnonymousEvent.CallerFilePath)).Should().BeTrue();
-            result.ContainsKey(nameof(BbAnonymousEvent.CallerLineNumber)).Should().BeTrue();
+            result[nameof(AnonymousDomainEvent.IsAnonymous)].Should().Be(true.ToString().ToLowerInvariant());
+            result.ContainsKey(nameof(AnonymousDomainEvent.CallerMemberName)).Should().BeTrue();
+            result.ContainsKey(nameof(AnonymousDomainEvent.CallerFilePath)).Should().BeTrue();
+            result.ContainsKey(nameof(AnonymousDomainEvent.CallerLineNumber)).Should().BeTrue();
         }
     }
 
