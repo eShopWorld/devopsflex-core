@@ -12,7 +12,7 @@
         /// Publishes a <see cref="BaseDomainEvent"/> through the pipeline.
         /// </summary>
         /// <param name="baseDomainEvent">The event that we want to publish.</param>
-        /// <param name="calleremberName">
+        /// <param name="callerMemberName">
         /// This should be populated by <see cref="System.Runtime.CompilerServices"/>, do not populate this manually.
         /// The method or property name of the caller to the method.
         /// </param>
@@ -26,7 +26,7 @@
         /// </param>
         void Publish(
             [NotNull] BaseDomainEvent baseDomainEvent,
-            [CallerMemberName] string calleremberName = "",
+            [CallerMemberName] string callerMemberName = "",
             [CallerFilePath] string callerFilePath = "",
             [CallerLineNumber] int callerLineNumber = -1);
 
@@ -34,7 +34,7 @@
         /// Publishes an anonymous class through the pipeline.
         /// </summary>
         /// <param name="event">The anonymous event that we want to publish.</param>
-        /// <param name="calleremberName">
+        /// <param name="callerMemberName">
         /// This should be populated by <see cref="System.Runtime.CompilerServices"/>, do not populate this manually.
         /// The method or property name of the caller to the method.
         /// </param>
@@ -48,7 +48,7 @@
         /// </param>
         void Publish(
             [NotNull] object @event,
-            [CallerMemberName] string calleremberName = "",
+            [CallerMemberName] string callerMemberName = "",
             [CallerFilePath] string callerFilePath = "",
             [CallerLineNumber] int callerLineNumber = -1);
 
