@@ -8,7 +8,7 @@
     /// The base class from all BigBrother <see cref="Exception"/> based events that are going to be
     /// tracked by AI as Exception Telemetry events.
     /// </summary>
-    public class ExceptionEvent : DomainEvent
+    public class ExceptionEvent : TelemetryEvent
     {
         /// <summary>
         /// Initializes a new instance of <see cref="ExceptionEvent"/>.

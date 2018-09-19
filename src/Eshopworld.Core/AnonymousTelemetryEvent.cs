@@ -10,13 +10,13 @@
     /// The base class from all BigBrother anonymous class based events that are going to be
     /// tracked by AI as Telemetry Events.
     /// </summary>
-    internal class AnonymousDomainEvent : DomainEvent
+    internal class AnonymousTelemetryEvent : TelemetryEvent
     {
         /// <summary>
-        /// Initializes a new instance of <see cref="AnonymousDomainEvent"/>.
+        /// Initializes a new instance of <see cref="AnonymousTelemetryEvent"/>.
         /// </summary>
         /// <param name="payload"></param>
-        internal AnonymousDomainEvent([NotNull] object payload)
+        internal AnonymousTelemetryEvent([NotNull] object payload)
         {
             Payload = payload;
         }

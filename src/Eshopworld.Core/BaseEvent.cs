@@ -9,15 +9,15 @@
     /// Base class for all events pushed by the telemetry platform. Can't be inherited directly but is base
     /// to all the classes that you can inherit from.
     /// </summary>
-    public class BaseDomainEvent
+    public class BaseEvent
     {
         /// <summary>
-        /// Initializes an instance of <see cref="BaseDomainEvent"/>.
+        /// Initializes an instance of <see cref="BaseEvent"/>.
         /// </summary>
         /// <remarks>
         /// Intentionally hidden to prevent folks from instantiating this class directly.
         /// </remarks>
-        internal BaseDomainEvent()
+        internal BaseEvent()
         {
         }
 
@@ -44,7 +44,7 @@
         }
 
         /// <summary>
-        /// Copies all properties on this <see cref="BaseDomainEvent"/> event to a specific target <see cref="IDictionary{String, String}"/>.
+        /// Copies all properties on this <see cref="BaseEvent"/> event to a specific target <see cref="IDictionary{String, String}"/>.
         /// </summary>
         /// <param name="target">The target <see cref="IDictionary{String, String}"/>.</param>
         /// <param name="replace">true if we want to replace previously existing keys, false otherwise. If false and the key already exists, this method will throw.</param>

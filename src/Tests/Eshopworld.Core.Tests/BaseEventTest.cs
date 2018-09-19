@@ -100,7 +100,7 @@ public class BaseEventTest
         }
     }
 
-    public class TestEvent : DomainEvent
+    public class TestEvent : TelemetryEvent
     {
         public TestEvent()
         {
@@ -116,7 +116,7 @@ public class BaseEventTest
         public TestEvent BadReference => this;
     }
 
-    public class TestReferenceEvent : DomainEvent
+    public class TestReferenceEvent : TelemetryEvent
     {
         public TestReferenceEvent()
         {
@@ -129,7 +129,7 @@ public class BaseEventTest
         public string SomeString { get; set; }
     }
 
-    public class BadReferenceTestEvent : DomainEvent
+    public class BadReferenceTestEvent : TelemetryEvent
     {
         public BadReferenceTestEvent()
         {

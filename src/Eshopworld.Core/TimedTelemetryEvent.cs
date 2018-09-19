@@ -7,7 +7,7 @@
     /// The base class for events that are timed. They START and END and while doing that they also
     ///     fire a Metric event with the time taken to execute throughout from the START to the END.
     /// </summary>
-    public class TimedDomainEvent : DomainEvent
+    public class TimedTelemetryEvent : TelemetryEvent
     {
         /// <summary>
         /// The START time for this event.

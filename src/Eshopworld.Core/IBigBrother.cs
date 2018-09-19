@@ -9,9 +9,9 @@
     public interface IBigBrother
     {
         /// <summary>
-        /// Publishes a <see cref="BaseDomainEvent"/> through the pipeline.
+        /// Publishes a <see cref="BaseEvent"/> through the pipeline.
         /// </summary>
-        /// <param name="baseDomainEvent">The event that we want to publish.</param>
+        /// <param name="event">The event that we want to publish.</param>
         /// <param name="callerMemberName">
         /// This should be populated by <see cref="System.Runtime.CompilerServices"/>, do not populate this manually.
         /// The method or property name of the caller to the method.
@@ -25,7 +25,7 @@
         /// The line number in the source file at which the method is called.
         /// </param>
         void Publish(
-            [NotNull] BaseDomainEvent baseDomainEvent,
+            [NotNull] BaseEvent @event,
             [CallerMemberName] string callerMemberName = "",
             [CallerFilePath] string callerFilePath = "",
             [CallerLineNumber] int callerLineNumber = -1);

@@ -5,14 +5,14 @@ using FluentAssertions;
 using Xunit;
 
 // ReSharper disable once CheckNamespace
-public class TimedDomainEventTest
+public class TimedTelemetryEventTest
 {
     [Fact, IsUnit]
     public void Test_StartTime()
     {
         DateTime now = DateTime.Now;
-        TimedDomainEvent.DateTimeNow = () => now;
-        var tEvent = new TimedDomainEvent();
+        TimedTelemetryEvent.DateTimeNow = () => now;
+        var tEvent = new TimedTelemetryEvent();
 
         tEvent.StartTime.Should().Be(now);
     }
@@ -21,9 +21,9 @@ public class TimedDomainEventTest
     public void Test_EndTime()
     {
         var now = DateTime.Now; // freeze time
-        TimedDomainEvent.DateTimeNow = () => now;
+        TimedTelemetryEvent.DateTimeNow = () => now;
 
-        var tEvent = new TimedDomainEvent();
+        var tEvent = new TimedTelemetryEvent();
         tEvent.End();
 
         tEvent.EndTime.Should().Be(now);
@@ -35,12 +35,12 @@ public class TimedDomainEventTest
         var now = DateTime.Now; // freeze time
         var nowPlus10 = DateTime.Now.AddMinutes(10); // freeze time 10 minutes later
 
-        TimedDomainEvent.DateTimeNow = () => now;
+        TimedTelemetryEvent.DateTimeNow = () => now;
 
-        var tEvent = new TimedDomainEvent();
+        var tEvent = new TimedTelemetryEvent();
         tEvent.End();
 
-        TimedDomainEvent.DateTimeNow = () => nowPlus10;
+        TimedTelemetryEvent.DateTimeNow = () => nowPlus10;
 
         tEvent.End();
         tEvent.EndTime.Should().Be(now);
@@ -52,10 +52,10 @@ public class TimedDomainEventTest
         var now = DateTime.Now; // freeze time
         var nowPlus10 = DateTime.Now.AddMinutes(10); // freeze time 10 minutes later
 
-        TimedDomainEvent.DateTimeNow = () => now;
+        TimedTelemetryEvent.DateTimeNow = () => now;
 
-        var tEvent = new TimedDomainEvent();
-        TimedDomainEvent.DateTimeNow = () => nowPlus10;
+        var tEvent = new TimedTelemetryEvent();
+        TimedTelemetryEvent.DateTimeNow = () => nowPlus10;
         tEvent.End();
 
         tEvent.ProcessingTime.Should().BeCloseTo(TimeSpan.FromMinutes(10), 1000);
@@ -67,11 +67,11 @@ public class TimedDomainEventTest
         var now = DateTime.Now; // freeze time
         var nowPlus10 = DateTime.Now.AddMinutes(10); // freeze time 10 minutes later
 
-        TimedDomainEvent.DateTimeNow = () => now;
+        TimedTelemetryEvent.DateTimeNow = () => now;
 
-        var tEvent = new TimedDomainEvent();
+        var tEvent = new TimedTelemetryEvent();
 
-        TimedDomainEvent.DateTimeNow = () => nowPlus10;
+        TimedTelemetryEvent.DateTimeNow = () => nowPlus10;
 
         tEvent.ProcessingTime.Should().BeCloseTo(TimeSpan.FromMinutes(10), 1000);
     }
