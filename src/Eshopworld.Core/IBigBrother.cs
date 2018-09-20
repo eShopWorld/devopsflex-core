@@ -9,10 +9,10 @@
     public interface IBigBrother
     {
         /// <summary>
-        /// Publishes a <see cref="BbEvent"/> through the pipeline.
+        /// Publishes a <see cref="BaseEvent"/> through the pipeline.
         /// </summary>
-        /// <param name="bbEvent">The event that we want to publish.</param>
-        /// <param name="calleremberName">
+        /// <param name="event">The event that we want to publish.</param>
+        /// <param name="callerMemberName">
         /// This should be populated by <see cref="System.Runtime.CompilerServices"/>, do not populate this manually.
         /// The method or property name of the caller to the method.
         /// </param>
@@ -25,8 +25,8 @@
         /// The line number in the source file at which the method is called.
         /// </param>
         void Publish(
-            [NotNull] BbEvent bbEvent,
-            [CallerMemberName] string calleremberName = "",
+            [NotNull] BaseEvent @event,
+            [CallerMemberName] string callerMemberName = "",
             [CallerFilePath] string callerFilePath = "",
             [CallerLineNumber] int callerLineNumber = -1);
 
@@ -34,7 +34,7 @@
         /// Publishes an anonymous class through the pipeline.
         /// </summary>
         /// <param name="event">The anonymous event that we want to publish.</param>
-        /// <param name="calleremberName">
+        /// <param name="callerMemberName">
         /// This should be populated by <see cref="System.Runtime.CompilerServices"/>, do not populate this manually.
         /// The method or property name of the caller to the method.
         /// </param>
@@ -48,7 +48,7 @@
         /// </param>
         void Publish(
             [NotNull] object @event,
-            [CallerMemberName] string calleremberName = "",
+            [CallerMemberName] string callerMemberName = "",
             [CallerFilePath] string callerFilePath = "",
             [CallerLineNumber] int callerLineNumber = -1);
 

@@ -10,25 +10,25 @@
     /// The base class from all BigBrother anonymous class based events that are going to be
     /// tracked by AI as Telemetry Events.
     /// </summary>
-    internal class BbAnonymousEvent : BbTelemetryEvent
+    internal class AnonymousTelemetryEvent : TelemetryEvent
     {
         /// <summary>
-        /// Initializes a new instance of <see cref="BbAnonymousEvent"/>.
+        /// Initializes a new instance of <see cref="AnonymousTelemetryEvent"/>.
         /// </summary>
         /// <param name="payload"></param>
-        internal BbAnonymousEvent([NotNull] object payload)
+        internal AnonymousTelemetryEvent([NotNull] object payload)
         {
             Payload = payload;
         }
 
         /// <summary>
-        /// Gets and sets the anonynimous class as an <see cref="object"/> that originated this event.
+        /// Gets and sets the anonymous class as an <see cref="object"/> that originated this event.
         /// </summary>
         [JsonIgnore]
         [NotNull] internal object Payload { get; }
 
         /// <summary>
-        /// Always returs true since this is indeed an anonymous event.
+        /// Always returns true since this is indeed an anonymous event.
         /// </summary>
         public bool IsAnonymous => true;
 

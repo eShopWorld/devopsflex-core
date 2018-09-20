@@ -4,7 +4,7 @@
     /// The base class from all BigBrother telemetry based events that are going to be
     /// tracked by AI as Telemetry Events.
     /// </summary>
-    public class BbTelemetryEvent : BbEvent
+    public class TelemetryEvent : BaseEvent
     {
         /// <summary>
         /// Gets and sets the method or property name of the caller to the method.

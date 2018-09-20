@@ -7,7 +7,7 @@
     /// The base class for events that are timed. They START and END and while doing that they also
     ///     fire a Metric event with the time taken to execute throughout from the START to the END.
     /// </summary>
-    public class BbTimedEvent : BbTelemetryEvent
+    public class TimedTelemetryEvent : TelemetryEvent
     {
         /// <summary>
         /// The START time for this event.
@@ -25,6 +25,7 @@
         /// Gets the total elapsed processing time.
         ///     If End() hasn't been called it will use <see cref="DateTime.Now"/> as the current end time without setting an EndTime.
         /// </summary>
+        [JsonIgnore]
         public TimeSpan ProcessingTime => EndTime?.Subtract(StartTime) ?? DateTimeNow.Invoke().Subtract(StartTime);
 
         /// <summary>

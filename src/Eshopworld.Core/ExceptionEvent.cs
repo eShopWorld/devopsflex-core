@@ -8,13 +8,13 @@
     /// The base class from all BigBrother <see cref="Exception"/> based events that are going to be
     /// tracked by AI as Exception Telemetry events.
     /// </summary>
-    public class BbExceptionEvent : BbTelemetryEvent
+    public class ExceptionEvent : TelemetryEvent
     {
         /// <summary>
-        /// Initializes a new instance of <see cref="BbExceptionEvent"/>.
+        /// Initializes a new instance of <see cref="ExceptionEvent"/>.
         /// </summary>
         /// <param name="exception">The source exception for this event.</param>
-        public BbExceptionEvent([NotNull]Exception exception)
+        public ExceptionEvent([NotNull]Exception exception)
         {
             Exception = exception;
         }
@@ -27,28 +27,28 @@
     }
 
     /// <summary>
-    /// Containst conversion extensions to <see cref="Exception"/> to produce events of, or based of <see cref="BbExceptionEvent"/>.
+    /// Constraint conversion extensions to <see cref="Exception"/> to produce events of, or based of <see cref="ExceptionEvent"/>.
     /// </summary>
-    public static class BbExceptionEventExtensions
+    public static class ExceptionEventExtensions
     {
         /// <summary>
-        /// Converts a generic <see cref="Exception"/> into a <see cref="BbExceptionEvent"/>.
+        /// Converts a generic <see cref="Exception"/> into a <see cref="ExceptionEvent"/>.
         /// </summary>
         /// <param name="exception">The original <see cref="Exception"/>.</param>
-        /// <returns>The converted <see cref="BbExceptionEvent"/>.</returns>
-        public static BbExceptionEvent ToBbEvent(this Exception exception)
+        /// <returns>The converted <see cref="ExceptionEvent"/>.</returns>
+        public static ExceptionEvent ToExceptionEvent(this Exception exception)
         {
-            return ToBbEvent<BbExceptionEvent>(exception);
+            return ToExceptionEvent<ExceptionEvent>(exception);
         }
 
         /// <summary>
-        /// Converts a generic <see cref="Exception"/> into any class that inherits from <see cref="BbExceptionEvent"/>.
+        /// Converts a generic <see cref="Exception"/> into any class that inherits from <see cref="ExceptionEvent"/>.
         /// </summary>
-        /// <typeparam name="T">The type of the specific <see cref="BbExceptionEvent"/> super class.</typeparam>
+        /// <typeparam name="T">The type of the specific <see cref="ExceptionEvent"/> super class.</typeparam>
         /// <param name="exception">The original <see cref="Exception"/>.</param>
-        /// <returns>The converted super class of <see cref="BbExceptionEvent"/>.</returns>
-        public static T ToBbEvent<T>(this Exception exception)
-            where T : BbExceptionEvent
+        /// <returns>The converted super class of <see cref="ExceptionEvent"/>.</returns>
+        public static T ToExceptionEvent<T>(this Exception exception)
+            where T : ExceptionEvent
         {
             return (T) Activator.CreateInstance(typeof(T), exception);
         }

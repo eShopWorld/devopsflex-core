@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using Xunit;
 
 // ReSharper disable once CheckNamespace
-public class BbEventTest
+public class BaseEventTest
 {
     public class ToStringDictionary
     {
@@ -100,7 +100,7 @@ public class BbEventTest
         }
     }
 
-    public class TestEvent : BbTelemetryEvent
+    public class TestEvent : TelemetryEvent
     {
         public TestEvent()
         {
@@ -116,7 +116,7 @@ public class BbEventTest
         public TestEvent BadReference => this;
     }
 
-    public class TestReferenceEvent : BbTelemetryEvent
+    public class TestReferenceEvent : TelemetryEvent
     {
         public TestReferenceEvent()
         {
@@ -129,7 +129,7 @@ public class BbEventTest
         public string SomeString { get; set; }
     }
 
-    public class BadReferenceTestEvent : BbTelemetryEvent
+    public class BadReferenceTestEvent : TelemetryEvent
     {
         public BadReferenceTestEvent()
         {
