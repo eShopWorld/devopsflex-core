@@ -9,7 +9,7 @@
     public interface IBigBrother
     {
         /// <summary>
-        /// Publishes a <see cref="BaseEvent"/> through the pipeline.
+        /// Publishes a <see cref="TelemetryEvent"/> through the pipeline.
         /// </summary>
         /// <param name="event">The event that we want to publish.</param>
         /// <param name="callerMemberName">
@@ -25,7 +25,7 @@
         /// The line number in the source file at which the method is called.
         /// </param>
         void Publish(
-            [NotNull] BaseEvent @event,
+            [NotNull] TelemetryEvent @event,
             [CallerMemberName] string callerMemberName = "",
             [CallerFilePath] string callerFilePath = "",
             [CallerLineNumber] int callerLineNumber = -1);
