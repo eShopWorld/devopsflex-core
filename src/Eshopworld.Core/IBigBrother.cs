@@ -69,12 +69,11 @@
         /// <summary>
         /// Uses Kusto to stream <see cref="TelemetryEvent"/> besides the normal streaming targets defined in <see cref="IBigBrother"/>.
         /// </summary>
-        /// <param name="kustoNameLocationUri">The pair 'KUSTONAME.LOCATION' used in all Kusto endpoint URIs.</param>
+        /// <param name="kustoEngineName">The name of the Kusto Engine to use in all endpoint URIs.</param>
+        /// <param name="kustoEngineLocation">The Location of the Kusto Engine to use in all endpoint URIs.</param>
         /// <param name="kustoDb">The name of the Kusto database to stream to.</param>
         /// <param name="tenantId">The AAD tenant ID where the Kusto engine is located.</param>
-        /// <param name="appId">The AAD application ID used to authenticate in Kusto.</param>
-        /// <param name="appKey">The AAD application Key used to authenticate in Kusto.</param>
         /// <returns></returns>
-        IBigBrother UseKusto(string kustoNameLocationUri, string kustoDb, string tenantId, string appId, string appKey);
+        IBigBrother UseKusto(string kustoEngineName, string kustoEngineLocation, string kustoDb, string tenantId);
     }
 }
