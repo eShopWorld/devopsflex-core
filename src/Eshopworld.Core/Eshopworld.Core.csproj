@@ -2,7 +2,7 @@
 
   <PropertyGroup>
 
-    <Version>2.0.2</Version>
+    <Version>2.0.3</Version>
     <PackageReleaseNotes>Changed the UseKusto contract to support MSI.</PackageReleaseNotes>
 
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -10,7 +10,7 @@
 
     <IsPackable>True</IsPackable>
     <PackageId>Eshopworld.Core</PackageId>
-    <Authors>David Rodrigues</Authors>
+    <Authors>David Rodrigues, David Guerin</Authors>
     <Company>eShopWorld</Company>
     <PackageLicenseUrl>https://github.com/eShopWorld/core/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/eShopWorld/core</PackageProjectUrl>
