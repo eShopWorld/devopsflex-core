@@ -24,11 +24,11 @@
         /// This should be populated by <see cref="System.Runtime.CompilerServices"/>, do not populate this manually.
         /// The line number in the source file at which the method is called.
         /// </param>
-        void Publish(
-            [NotNull] TelemetryEvent @event,
+        void Publish<T>(
+            [NotNull] T @event,
             [CallerMemberName] string callerMemberName = "",
             [CallerFilePath] string callerFilePath = "",
-            [CallerLineNumber] int callerLineNumber = -1);
+            [CallerLineNumber] int callerLineNumber = -1) where T : TelemetryEvent;
 
         /// <summary>
         /// Publishes an anonymous class through the pipeline.
