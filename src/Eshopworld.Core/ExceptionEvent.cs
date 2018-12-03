@@ -24,6 +24,13 @@
         /// </summary>
         [JsonIgnore]
         public Exception Exception { get; set; }
+
+        /// <summary>
+        /// Specifies whether stack trace of exception should be simplified, e.g. by removing
+        /// references to compiler gerated methods.
+        /// </summary>
+        [JsonIgnore]
+        public virtual bool SimplifyStackTrace => true;
     }
 
     /// <summary>

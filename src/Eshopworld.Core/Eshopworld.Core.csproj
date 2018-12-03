@@ -2,8 +2,8 @@
 
   <PropertyGroup>
 
-    <Version>2.0.3</Version>
-    <PackageReleaseNotes>Changed the UseKusto contract to support MSI.</PackageReleaseNotes>
+    <Version>2.0.4</Version>
+    <PackageReleaseNotes>Added an option to disable an exception's stack trace simplification.</PackageReleaseNotes>
 
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
