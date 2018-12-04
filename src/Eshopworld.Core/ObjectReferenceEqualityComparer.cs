@@ -16,7 +16,7 @@
         /// <summary>
         /// Utility static reference to avoid instantiation all the time.
         /// </summary>
-        public new static IEqualityComparer<T> Default => _defaultComparer ?? (_defaultComparer = new ObjectReferenceEqualityComparer<T>());
+        public static new IEqualityComparer<T> Default => _defaultComparer ?? (_defaultComparer = new ObjectReferenceEqualityComparer<T>());
 
         /// <summary>
         /// Determines whether the specified objects are equal.

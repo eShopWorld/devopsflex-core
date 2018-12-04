@@ -24,7 +24,7 @@ public class AnonymousTelemetryEventTest
 
             result[nameof(payload.Name)].Should().Be(payload.Name);
             result[nameof(payload.Value)].Should().Be(payload.Value.ToString());
-            result[nameof(payload.Enum)].Should().Be(((int) payload.Enum).ToString());
+            result[nameof(payload.Enum)].Should().Be(((int)payload.Enum).ToString());
             result[nameof(AnonymousTelemetryEvent.IsAnonymous)].Should().Be(true.ToString().ToLowerInvariant());
             result.ContainsKey(nameof(AnonymousTelemetryEvent.CallerMemberName)).Should().BeTrue();
             result.ContainsKey(nameof(AnonymousTelemetryEvent.CallerFilePath)).Should().BeTrue();

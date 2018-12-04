@@ -2,8 +2,8 @@
 
   <PropertyGroup>
 
-    <Version>2.0.3</Version>
-    <PackageReleaseNotes>Changed the UseKusto contract to support MSI.</PackageReleaseNotes>
+    <Version>2.0.5</Version>
+    <PackageReleaseNotes>Added an option to disable an exception's stack trace simplification.</PackageReleaseNotes>
 
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
@@ -37,7 +37,7 @@
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" Version="2018.2.1" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-    <PackageReference Include="System.Reactive" Version="4.1.0" />
+    <PackageReference Include="System.Reactive" Version="4.1.2" />
   </ItemGroup>
 
 </Project>
