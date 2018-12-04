@@ -57,7 +57,7 @@
         public static T ToExceptionEvent<T>(this Exception exception)
             where T : ExceptionEvent
         {
-            return (T) Activator.CreateInstance(typeof(T), exception);
+            return (T)Activator.CreateInstance(typeof(T), exception);
         }
     }
 }
