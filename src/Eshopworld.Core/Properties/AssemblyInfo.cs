@@ -8,3 +8,6 @@
 
 [assembly: InternalsVisibleTo("Eshopworld.Messaging")]
 [assembly: InternalsVisibleTo("Eshopworld.Messaging.Tests")]
+
+[assembly: InternalsVisibleTo("Eshopworld.Web")]
+[assembly: InternalsVisibleTo("Eshopworld.Web.Tests")]
