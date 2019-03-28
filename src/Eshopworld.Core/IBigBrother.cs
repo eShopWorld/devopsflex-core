@@ -1,4 +1,6 @@
-﻿namespace Eshopworld.Core
+﻿using System.Threading.Tasks;
+
+namespace Eshopworld.Core
 {
     using System.Runtime.CompilerServices;
     using JetBrains.Annotations;
@@ -24,7 +26,7 @@
         /// This should be populated by <see cref="System.Runtime.CompilerServices"/>, do not populate this manually.
         /// The line number in the source file at which the method is called.
         /// </param>
-        void Publish<T>(
+        Task Publish<T>(
             [NotNull] T @event,
             [CallerMemberName] string callerMemberName = "",
             [CallerFilePath] string callerFilePath = "",
@@ -53,6 +55,21 @@
             [CallerLineNumber] int callerLineNumber = -1);
 
         /// <summary>
+        /// Creates a tracked metric proxy used to track custom metrics in Application Insights.
+        /// </summary>
+        /// <typeparam name="T">The base type for the proxy we want to create.</typeparam>
+        /// <returns>A proxy to the base type of the metric requested.</returns>
+        T GetTrackedMetric<T>() where T : ITrackedMetric;
+
+        /// <summary>
+        /// Creates a tracked metric proxy used to track custom metrics in Application Insights.
+        /// </summary>
+        /// <typeparam name="T">The base type for the proxy we want to create.</typeparam>
+        /// <param name="parameters">A flat list of the constructor parameters to invoke when instantiating the base type.</param>
+        /// <returns>A proxy to the base type of the metric requested.</returns>
+        T GetTrackedMetric<T>(params object[] parameters) where T : ITrackedMetric;
+
+        /// <summary>
         /// Forces the telemetry channel to be in developer mode, where it will instantly push
         /// telemetry to the Application Insights account.
         /// </summary>
@@ -69,11 +86,10 @@
         /// <summary>
         /// Uses Kusto to stream <see cref="TelemetryEvent"/> besides the normal streaming targets defined in <see cref="IBigBrother"/>.
         /// </summary>
-        /// <param name="kustoEngineName">The name of the Kusto Engine to use in all endpoint URIs.</param>
-        /// <param name="kustoEngineLocation">The Location of the Kusto Engine to use in all endpoint URIs.</param>
+        /// <param name="kustoUri">The absolute URI of the Kusto Engine to use for the base engine.</param>
+        /// <param name="kustoIngestUri">The absolute URI of the Kusto ingestion endpoint.</param>
         /// <param name="kustoDb">The name of the Kusto database to stream to.</param>
-        /// <param name="tenantId">The AAD tenant ID where the Kusto engine is located.</param>
         /// <returns></returns>
-        IBigBrother UseKusto(string kustoEngineName, string kustoEngineLocation, string kustoDb, string tenantId);
+        IBigBrother UseKusto(string kustoUri, string kustoIngestUri, string kustoDb);
     }
 }

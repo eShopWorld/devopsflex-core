@@ -31,6 +31,9 @@
         /// </summary>
         [JsonIgnore]
         public virtual bool SimplifyStackTrace => true;
+
+        [JsonIgnore]
+        public virtual bool UnwrapAggregate => true;
     }
 
     /// <summary>
