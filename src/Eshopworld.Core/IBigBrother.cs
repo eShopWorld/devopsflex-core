@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace Eshopworld.Core
 {
@@ -26,7 +27,17 @@ namespace Eshopworld.Core
         /// This should be populated by <see cref="System.Runtime.CompilerServices"/>, do not populate this manually.
         /// The line number in the source file at which the method is called.
         /// </param>
-        Task Publish<T>(
+        Task PublishAsync<T>(
+            [NotNull] T @event,
+            [CallerMemberName] string callerMemberName = "",
+            [CallerFilePath] string callerFilePath = "",
+            [CallerLineNumber] int callerLineNumber = -1) where T : TelemetryEvent;
+
+        /// <remarks>
+        /// To be removed in 3.1
+        /// </remarks>>
+        [Obsolete("Switch to PublishAsync.")]
+        void Publish<T>(
             [NotNull] T @event,
             [CallerMemberName] string callerMemberName = "",
             [CallerFilePath] string callerFilePath = "",
