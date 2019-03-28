@@ -1,9 +1,9 @@
-﻿namespace Eshopworld.Core
-{
-    using System.Reflection;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Serialization;
+﻿using System.Reflection;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
+namespace Eshopworld.Core
+{
     /// <inheritdoc />
     /// <remarks>
     /// This resolver ignores all reference types.

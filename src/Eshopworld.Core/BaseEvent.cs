@@ -1,10 +1,10 @@
-﻿namespace Eshopworld.Core
-{
-    using System;
-    using System.Collections.Generic;
-    using JetBrains.Annotations;
-    using Newtonsoft.Json;
+﻿using System;
+using System.Collections.Generic;
+using JetBrains.Annotations;
+using Newtonsoft.Json;
 
+namespace Eshopworld.Core
+{
     /// <summary>
     /// Base class for all events pushed by the telemetry platform. Can't be inherited directly but is base
     /// to all the classes that you can inherit from.

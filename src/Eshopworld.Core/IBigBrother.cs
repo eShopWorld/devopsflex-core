@@ -1,11 +1,10 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 
 namespace Eshopworld.Core
 {
-    using System.Runtime.CompilerServices;
-    using JetBrains.Annotations;
-
     /// <summary>
     /// Contract that provides a way to publish telemetry events for instrumentation.
     /// </summary>
@@ -34,7 +33,7 @@ namespace Eshopworld.Core
             [CallerLineNumber] int callerLineNumber = -1) where T : TelemetryEvent;
 
         /// <remarks>
-        /// To be removed in 3.1
+        /// To be removed in 4.0
         /// </remarks>>
         [Obsolete("Switch to PublishAsync.")]
         void Publish<T>(

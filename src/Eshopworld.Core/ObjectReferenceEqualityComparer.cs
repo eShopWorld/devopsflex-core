@@ -1,8 +1,8 @@
-﻿namespace Eshopworld.Core
-{
-    using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
+﻿using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
+namespace Eshopworld.Core
+{
     /// <summary>
     /// A generic object comparer that would only use object's reference, 
     ///     ignoring any <see cref="System.IEquatable{T}"/> or <see cref="object.Equals(object)"/>  overrides.

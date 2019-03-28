@@ -1,8 +1,8 @@
-﻿namespace Eshopworld.Core
-{
-    using System;
-    using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 
+namespace Eshopworld.Core
+{
     /// <summary>
     /// The base class for events that are timed. They START and END and while doing that they also
     ///     fire a Metric event with the time taken to execute throughout from the START to the END.

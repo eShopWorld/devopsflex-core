@@ -1,11 +1,11 @@
-﻿namespace Eshopworld.Core
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using JetBrains.Annotations;
-    using Newtonsoft.Json;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using JetBrains.Annotations;
+using Newtonsoft.Json;
 
+namespace Eshopworld.Core
+{
     /// <summary>
     /// The base class from all BigBrother anonymous class based events that are going to be
     /// tracked by AI as Telemetry Events.

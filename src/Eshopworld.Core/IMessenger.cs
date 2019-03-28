@@ -1,9 +1,9 @@
-﻿namespace Eshopworld.Core
-{
-    using System;
-    using System.Threading.Tasks;
-    using JetBrains.Annotations;
+﻿using System;
+using System.Threading.Tasks;
+using JetBrains.Annotations;
 
+namespace Eshopworld.Core
+{
     /// <summary>
     /// Contract that provides a simple way to send messages to queues.
     /// </summary>
