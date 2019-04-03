@@ -9,6 +9,6 @@
         /// <summary>
         /// Gets and sets the value for the metric being pushed.
         /// </summary>
-        double Metric { set; }
+        double Metric { get; set; }
     }
 }
