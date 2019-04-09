@@ -17,7 +17,7 @@ namespace Eshopworld.Core
 
             if (prop.PropertyType.IsClass && prop.PropertyType != typeof(string) || prop.PropertyType.IsInterface)
             {
-                prop.ShouldSerialize = obj => false;
+                prop.ShouldSerialize = _ => false;
             }
 
             return prop;
