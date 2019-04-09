@@ -2,7 +2,7 @@
 
   <PropertyGroup>
 
-    <Version>2.1.1</Version>
+    <Version>2.1.2</Version>
     <PackageReleaseNotes>declare friendship to eshopworld.web (including tests)</PackageReleaseNotes>
 
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -16,7 +16,7 @@
     <PackageProjectUrl>https://github.com/eShopWorld/core</PackageProjectUrl>
     <Description>eShopWorld core package</Description>
     <Product>Eshopworld.Core</Product>
-    <Copyright>Copyright 2018</Copyright>
+    <Copyright>Copyright 2019</Copyright>
     <PackageTags>Eshopworld, Telemetry, Core</PackageTags>
 
     <IncludeSource>True</IncludeSource>
@@ -26,12 +26,10 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>bin\Debug\</OutputPath>
-    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>bin\Release\</OutputPath>
-    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
