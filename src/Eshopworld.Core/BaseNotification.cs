@@ -5,10 +5,5 @@
     /// </summary>
     public abstract class BaseNotification
     {
-        /// <summary>
-        /// non public constructor to prevent instantiation at this level
-        /// </summary>
-        internal BaseNotification()
-        { }
     }
 }
