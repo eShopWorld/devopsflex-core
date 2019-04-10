@@ -17,7 +17,7 @@ public class BaseEventTest
         {
             var poco = new TestEvent();
 
-            var result = poco.ToStringDictionary();
+            var result = poco.ToStringDictionary(EventFilterTargets.All);
 
             result[nameof(TestEvent.SomeInt)].Should().Be(poco.SomeInt.ToString());
             result[nameof(TestEvent.SomeString)].Should().Be(poco.SomeString);
@@ -29,7 +29,7 @@ public class BaseEventTest
         {
             var poco = new TestReferenceEvent();
 
-            var result = poco.ToStringDictionary();
+            var result = poco.ToStringDictionary(EventFilterTargets.All);
 
             result[nameof(TestEvent.SomeInt)].Should().Be(poco.SomeInt.ToString());
             result[nameof(TestEvent.SomeString)].Should().Be(poco.SomeString);
@@ -41,7 +41,7 @@ public class BaseEventTest
         {
             var poco = new BadReferenceTestEvent();
 
-            var result = poco.ToStringDictionary();
+            var result = poco.ToStringDictionary(EventFilterTargets.All);
 
             result[nameof(TestEvent.SomeInt)].Should().Be(poco.SomeInt.ToString());
             result[nameof(TestEvent.SomeString)].Should().Be(poco.SomeString);
@@ -67,7 +67,7 @@ public class BaseEventTest
 
             var poco = new Mock<TestEvent>();
 
-            poco.Setup(x => x.ToStringDictionary()).Returns(newProperties);
+            poco.Setup(x => x.ToStringDictionary(EventFilterTargets.All)).Returns(newProperties);
 
             poco.Object.CopyPropertiesInto(existingProperties);
 
@@ -91,7 +91,7 @@ public class BaseEventTest
 
             var poco = new Mock<TestEvent>();
 
-            poco.Setup(x => x.ToStringDictionary()).Returns(newProperties);
+            poco.Setup(x => x.ToStringDictionary(EventFilterTargets.All)).Returns(newProperties);
 
             poco.Object.CopyPropertiesInto(existingProperties, false);
 

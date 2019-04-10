@@ -50,7 +50,20 @@ public class EventFilterTest
     [Fact, IsUnit]
     public void Test_ReferencesAreOut_WhenIgnoreReferences()
     {
+        var testEvent = new TestFilterEvent { SomeReference = new ReferencePoco() };
+        var json = JsonConvert.SerializeObject(
+            testEvent,
+            new JsonSerializerSettings
+            {
+                ContractResolver = new EventContractResolver(EventFilterTargets.ApplicationInsights, true)
+            });
 
+        var result = JsonConvert.DeserializeObject<TestFilterEvent>(json);
+
+        result.SomeInt.Should().Be(testEvent.SomeInt);
+        result.SomeString.Should().Be(testEvent.SomeString);
+        result.MessagingFilteredProperty.Should().Be(testEvent.MessagingFilteredProperty);
+        result.SomeReference.Should().BeNull();
     }
 }
 

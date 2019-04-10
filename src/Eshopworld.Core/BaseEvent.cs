@@ -26,18 +26,23 @@ namespace Eshopworld.Core
         /// </summary>
         /// <returns>The converted <see cref="IDictionary{String, String}"/>.</returns>
         [NotNull]
-        internal virtual IDictionary<string, string> ToStringDictionary()
+        internal virtual IDictionary<string, string> ToStringDictionary(EventFilterTargets targets)
         {
             try
             {
-                return JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(this));
+                return JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(
+                    this,
+                    new JsonSerializerSettings
+                    {
+                        ContractResolver = new EventContractResolver(targets)
+                    }));
             }
             catch (Exception)
             {
                 return JsonConvert.DeserializeObject<Dictionary<string, string>>(
                     JsonConvert.SerializeObject(this, new JsonSerializerSettings
                     {
-                        ContractResolver = new NoReferencesJsonContractResolver(),
+                        ContractResolver = new EventContractResolver(targets, true),
                         PreserveReferencesHandling = PreserveReferencesHandling.None,
                         ReferenceLoopHandling = ReferenceLoopHandling.Ignore
                     }));
@@ -51,7 +56,7 @@ namespace Eshopworld.Core
         /// <param name="replace">true if we want to replace previously existing keys, false otherwise. If false and the key already exists, this method will throw.</param>
         internal void CopyPropertiesInto(IDictionary<string, string> target, bool replace = true)
         {
-            var properties = ToStringDictionary();
+            var properties = ToStringDictionary(EventFilterTargets.ApplicationInsights);
 
             foreach (var key in properties.Keys)
             {
