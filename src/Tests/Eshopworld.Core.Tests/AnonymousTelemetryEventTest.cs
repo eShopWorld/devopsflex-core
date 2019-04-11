@@ -20,7 +20,7 @@ public class AnonymousTelemetryEventTest
 
             var anonymousEvent = new AnonymousTelemetryEvent(payload);
 
-            var result = anonymousEvent.ToStringDictionary(EventFilterTargets.ApplicationInsights);
+            var result = anonymousEvent.ToStringDictionary();
 
             result[nameof(payload.Name)].Should().Be(payload.Name);
             result[nameof(payload.Value)].Should().Be(payload.Value.ToString());
@@ -48,7 +48,7 @@ public class AnonymousTelemetryEventTest
 
             var anonymousEvent = new AnonymousTelemetryEvent(payload);
 
-            var result = anonymousEvent.ToStringDictionary(EventFilterTargets.ApplicationInsights);
+            var result = anonymousEvent.ToStringDictionary();
 
             result[nameof(payload.Name)].Should().Be(payload.Name);
             result[nameof(payload.Value)].Should().Be(payload.Value.ToString());

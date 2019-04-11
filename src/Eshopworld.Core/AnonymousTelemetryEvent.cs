@@ -36,29 +36,18 @@ namespace Eshopworld.Core
         /// Converts the anonymous payload to a <see cref="IDictionary{TKey,TValue}"/> by using JSonConvert twice (both directions).
         /// </summary>
         /// <returns>The converted <see cref="IDictionary{String, String}"/>.</returns>
-        internal override IDictionary<string, string> ToStringDictionary(EventFilterTargets targets)
+        internal override IDictionary<string, string> ToStringDictionary()
         {
             try
             {
-                return JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(
-                                      Payload,
-                                      new JsonSerializerSettings
-                                      {
-                                          ContractResolver = new EventContractResolver(targets)
-                                      }))
-                                  .Union(base.ToStringDictionary(targets))
+                return JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(Payload, EventFilterJsonSettings))
+                                  .Union(base.ToStringDictionary())
                                   .ToDictionary(k => k.Key, v => v.Value);
             }
             catch (Exception)
             {
-                return JsonConvert.DeserializeObject<Dictionary<string, string>>(
-                                      JsonConvert.SerializeObject(Payload, new JsonSerializerSettings
-                                      {
-                                          ContractResolver = new EventContractResolver(targets, true),
-                                          PreserveReferencesHandling = PreserveReferencesHandling.None,
-                                          ReferenceLoopHandling = ReferenceLoopHandling.Error
-                                      }))
-                                  .Union(base.ToStringDictionary(targets))
+                return JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(Payload, EventFilterNoReferencesJsonSettings))
+                                  .Union(base.ToStringDictionary())
                                   .ToDictionary(k => k.Key, v => v.Value);
             }
         }
