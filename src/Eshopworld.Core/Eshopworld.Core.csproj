@@ -2,7 +2,7 @@
 
   <PropertyGroup>
 
-    <Version>3.0.0-beta3</Version>
+    <Version>3.0.0-beta4</Version>
     <PackageReleaseNotes>Added Metrics and changed all the big brother contracts to align.</PackageReleaseNotes>
 
     <TargetFramework>netstandard2.0</TargetFramework>
