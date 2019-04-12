@@ -12,7 +12,7 @@
     <PackageId>Eshopworld.Core</PackageId>
     <Authors>David Rodrigues, David Guerin, Oisin Haken</Authors>
     <Company>eShopWorld</Company>
-    <PackageLicenseUrl>https://github.com/eShopWorld/core/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/eShopWorld/core</PackageProjectUrl>
     <Description>eShopWorld core package</Description>
     <Product>Eshopworld.Core</Product>
