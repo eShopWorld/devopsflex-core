@@ -12,6 +12,27 @@ namespace Eshopworld.Core
     public class BaseEvent
     {
         /// <summary>
+        /// Holds a static reference to the <see cref="JsonSerializerSettings"/> used when serializing to Application Insights.
+        /// </summary>
+        internal static readonly JsonSerializerSettings EventFilterJsonSettings =
+            new JsonSerializerSettings
+            {
+                ContractResolver = new EventContractResolver(EventFilterTargets.ApplicationInsights)
+            };
+
+        /// <summary>
+        /// Holds a static reference to the <see cref="JsonSerializerSettings"/> used when serializing to Application Insights
+        ///     and ignoring all reference properties besides <see cref="string"/>.
+        /// </summary>
+        internal static readonly JsonSerializerSettings EventFilterNoReferencesJsonSettings =
+            new JsonSerializerSettings
+            {
+                ContractResolver = new EventContractResolver(EventFilterTargets.ApplicationInsights, true),
+                PreserveReferencesHandling = PreserveReferencesHandling.None,
+                ReferenceLoopHandling = ReferenceLoopHandling.Error
+            };
+
+        /// <summary>
         /// Initializes an instance of <see cref="BaseEvent"/>.
         /// </summary>
         /// <remarks>
@@ -30,17 +51,11 @@ namespace Eshopworld.Core
         {
             try
             {
-                return JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(this));
+                return JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(this, EventFilterJsonSettings));
             }
             catch (Exception)
             {
-                return JsonConvert.DeserializeObject<Dictionary<string, string>>(
-                    JsonConvert.SerializeObject(this, new JsonSerializerSettings
-                    {
-                        ContractResolver = new NoReferencesJsonContractResolver(),
-                        PreserveReferencesHandling = PreserveReferencesHandling.None,
-                        ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-                    }));
+                return JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(this, EventFilterNoReferencesJsonSettings));
             }
         }
 

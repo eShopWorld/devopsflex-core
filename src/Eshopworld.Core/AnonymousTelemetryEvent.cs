@@ -40,19 +40,13 @@ namespace Eshopworld.Core
         {
             try
             {
-                return JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(Payload))
+                return JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(Payload, EventFilterJsonSettings))
                                   .Union(base.ToStringDictionary())
                                   .ToDictionary(k => k.Key, v => v.Value);
             }
             catch (Exception)
             {
-                return JsonConvert.DeserializeObject<Dictionary<string, string>>(
-                                      JsonConvert.SerializeObject(Payload, new JsonSerializerSettings
-                                      {
-                                          ContractResolver = new NoReferencesJsonContractResolver(),
-                                          PreserveReferencesHandling = PreserveReferencesHandling.None,
-                                          ReferenceLoopHandling = ReferenceLoopHandling.Error
-                                      }))
+                return JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(Payload, EventFilterNoReferencesJsonSettings))
                                   .Union(base.ToStringDictionary())
                                   .ToDictionary(k => k.Key, v => v.Value);
             }

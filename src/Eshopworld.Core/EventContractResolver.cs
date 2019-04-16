@@ -35,12 +35,10 @@ namespace Eshopworld.Core
             {
                 property.ShouldSerialize = _ => false;
             }
-            else if (property.AttributeProvider.GetAttributes(true).OfType<EventFilterAttribute>().FirstOrDefault() is EventFilterAttribute att)
+            else if (property.AttributeProvider.GetAttributes(true).OfType<EventFilterAttribute>().FirstOrDefault() is EventFilterAttribute att
+                     && (att.Targets & _targets) != _targets)
             {
-                if ((att.Targets & _targets) != _targets)
-                {
-                    property.ShouldSerialize = _ => false;
-                }
+                property.ShouldSerialize = _ => false;
             }
 
             return property;
