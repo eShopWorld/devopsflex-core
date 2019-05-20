@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Eshopworld.Core;
 using Eshopworld.Tests.Core;
 using FluentAssertions;
@@ -46,6 +47,17 @@ public class BaseEventTest
             result[nameof(TestEvent.SomeInt)].Should().Be(poco.SomeInt.ToString());
             result[nameof(TestEvent.SomeString)].Should().Be(poco.SomeString);
             result.ContainsKey(nameof(TestEvent.BadReference)).Should().BeFalse();
+        }
+
+        [Fact, IsUnit]
+        public void Test_ConvertsEnumerations_AsString()
+        {
+            var evt = new EnumTestEvent();
+
+            var result = evt.ToStringDictionary();
+
+            result.Should().ContainKey(nameof(EnumTestEvent.TheEnumeration));
+            result.Should().ContainValue(evt.TheEnumeration.ToString());
         }
     }
 
@@ -142,5 +154,24 @@ public class BaseEventTest
         public string SomeString { get; set; }
 
         public BadReferenceTestEvent BadReference => this;
+    }
+
+    public class EnumTestEvent : TelemetryEvent
+    {
+        public enum SomeTypes
+        {
+            FirstValue,
+            SecondValue
+        }
+
+        public EnumTestEvent()
+        {
+            SomeString = Lorem.GetSentence();
+            TheEnumeration = EnumExtensions.Random<SomeTypes>();
+        }
+
+        public string SomeString { get; set; }
+
+        public SomeTypes TheEnumeration { get; set; }
     }
 }

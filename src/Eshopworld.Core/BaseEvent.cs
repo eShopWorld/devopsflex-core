@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Eshopworld.Core
 {
@@ -17,7 +18,8 @@ namespace Eshopworld.Core
         internal static readonly JsonSerializerSettings EventFilterJsonSettings =
             new JsonSerializerSettings
             {
-                ContractResolver = new EventContractResolver(EventFilterTargets.ApplicationInsights)
+                ContractResolver = new EventContractResolver(EventFilterTargets.ApplicationInsights),
+                Converters = new JsonConverter[] { new StringEnumConverter() }
             };
 
         /// <summary>
@@ -29,7 +31,8 @@ namespace Eshopworld.Core
             {
                 ContractResolver = new EventContractResolver(EventFilterTargets.ApplicationInsights, true),
                 PreserveReferencesHandling = PreserveReferencesHandling.None,
-                ReferenceLoopHandling = ReferenceLoopHandling.Error
+                ReferenceLoopHandling = ReferenceLoopHandling.Error,
+                Converters = new JsonConverter[] { new StringEnumConverter() }
             };
 
         /// <summary>
