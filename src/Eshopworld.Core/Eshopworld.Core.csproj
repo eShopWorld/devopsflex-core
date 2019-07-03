@@ -2,8 +2,8 @@
 
   <PropertyGroup>
 
-    <Version>2.1.1</Version>
-    <PackageReleaseNotes>declare friendship to eshopworld.web (including tests)</PackageReleaseNotes>
+    <Version>2.1.2</Version>
+    <PackageReleaseNotes>add dns configuration cascade interface</PackageReleaseNotes>
 
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
