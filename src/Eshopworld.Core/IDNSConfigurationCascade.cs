@@ -5,8 +5,7 @@
     ///
     /// Proxy (Service Fabric Reverse Proxy) -> Cluster (regional external load balancer) -> Global (FrontDoor)
     /// </summary>
-    // ReSharper disable once InconsistentNaming
-    public interface IDNSConfigurationCascade
+    public interface IDnsConfigurationCascade
     {
         string Proxy { get; set; }
         string Cluster { get; set; }
