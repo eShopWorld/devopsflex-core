@@ -35,24 +35,18 @@
 
             try
             {
-                return FullFlow();
+                return JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(target));
             }
             catch (Exception)
             {
-                return ShallowFlow();
-            }
-
-            IDictionary<string, string> FullFlow() =>
-                JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(target));
-
-            IDictionary<string, string> ShallowFlow() =>
-                JsonConvert.DeserializeObject<Dictionary<string, string>>(
+                return JsonConvert.DeserializeObject<Dictionary<string, string>>(
                     JsonConvert.SerializeObject(target, new JsonSerializerSettings
                     {
                         ContractResolver = new NoReferencesJsonContractResolver(),
                         PreserveReferencesHandling = PreserveReferencesHandling.None,
                         ReferenceLoopHandling = ReferenceLoopHandling.Ignore
                     }));
+            }
         }
         /// <summary>
         /// Converts this POCO to a <see cref="IDictionary{TKey,TValue}"/> by using JSonConvert twice (both directions).
