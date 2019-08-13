@@ -1,6 +1,7 @@
 ﻿namespace Eshopworld.Core
 {
     using System;
+    using System.Collections.Generic;
     using JetBrains.Annotations;
     using Newtonsoft.Json;
 
@@ -27,10 +28,15 @@
 
         /// <summary>
         /// Specifies whether stack trace of exception should be simplified, e.g. by removing
-        /// references to compiler gerated methods.
+        /// references to compiler generated methods.
         /// </summary>
         [JsonIgnore]
         public virtual bool SimplifyStackTrace => true;
+
+        internal override IDictionary<string, string> ToStringDictionary()
+        {
+            return ToUnionStringDictionary(Exception);
+        }
     }
 
     /// <summary>
