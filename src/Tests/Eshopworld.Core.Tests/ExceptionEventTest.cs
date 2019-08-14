@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+using System.Net;
 using Eshopworld.Core;
 using Eshopworld.Tests.Core;
 using FluentAssertions;
@@ -28,6 +30,31 @@ public class ExceptionEventTest
             var bbEvent = exception.ToExceptionEvent();
 
             bbEvent.Exception.Message.Should().Be(exceptionMessage);
+        }
+
+        [Fact, IsUnit]
+        public void Test_ExceptionCustomProperties()
+        {
+            var exc = new CustomTestException
+                {CustomByte = 123, CustomEnum = HttpStatusCode.Accepted, CustomString = "blah"};
+
+            var bbEvent = exc.ToExceptionEvent();
+
+            var dict = bbEvent.ToStringDictionary();
+            dict[nameof(CustomTestException.CustomString)].Should().Be("blah");
+            dict[nameof(CustomTestException.CustomByte)].Should().Be(123.ToString());
+            dict[nameof(CustomTestException.CustomEnum)].Should()
+                .Be(((int) HttpStatusCode.Accepted).ToString());
+            dict.ContainsKey(nameof(AnonymousTelemetryEvent.CallerMemberName)).Should().BeTrue();
+            dict.ContainsKey(nameof(AnonymousTelemetryEvent.CallerFilePath)).Should().BeTrue();
+            dict.ContainsKey(nameof(AnonymousTelemetryEvent.CallerLineNumber)).Should().BeTrue();
+        }
+
+        public class CustomTestException : Exception
+        {
+            public string CustomString { get; set; }
+            public byte CustomByte { get; set; }
+            public HttpStatusCode CustomEnum { get; set; }
         }
     }
 }
