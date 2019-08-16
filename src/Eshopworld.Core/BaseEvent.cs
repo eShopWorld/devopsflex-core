@@ -25,8 +25,18 @@
 
         internal  IDictionary<string, string> ToUnionStringDictionary(object adjunctObject)
         {
-            return ToStringDictionaryInner(this).Union(ToStringDictionaryInner(adjunctObject))
-                .ToDictionary(k => k.Key, v => v.Value);
+            IDictionary<string, string> adjunctDictionary = null;
+            try
+            {
+                adjunctDictionary = ToStringDictionaryInner(adjunctObject);
+            }
+            catch (Exception)
+            {
+                //soak
+            }
+            return adjunctDictionary!=null 
+                ? ToStringDictionaryInner(this).Union(ToStringDictionaryInner(adjunctObject)).ToDictionary(k => k.Key, v => v.Value) 
+                : ToStringDictionaryInner(this);
         }
 
         private IDictionary<string, string> ToStringDictionaryInner(object target = null)

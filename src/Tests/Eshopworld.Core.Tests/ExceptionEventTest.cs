@@ -50,7 +50,34 @@ public class ExceptionEventTest
             dict.ContainsKey(nameof(AnonymousTelemetryEvent.CallerLineNumber)).Should().BeTrue();
         }
 
-        public class CustomTestException : Exception
+
+        [Fact, IsUnit]
+        public void Test_ExceptionCustomProperties_AdjunctObjectThrows()
+        {
+            var exc = new ExceptionThrowingTestException{ CustomString = "blah" };
+
+            var bbEvent = exc.ToExceptionEvent();
+
+            var dict = bbEvent.ToStringDictionary();
+            dict.Should().NotContainKey(nameof(ExceptionThrowingTestException.CustomString));
+            dict.ContainsKey(nameof(AnonymousTelemetryEvent.CallerMemberName)).Should().BeTrue();
+            dict.ContainsKey(nameof(AnonymousTelemetryEvent.CallerFilePath)).Should().BeTrue();
+            dict.ContainsKey(nameof(AnonymousTelemetryEvent.CallerLineNumber)).Should().BeTrue();
+        }
+
+        public class ExceptionThrowingTestException : Exception
+        {
+            public string CustomString
+            {
+                get => throw new Exception();
+                // ReSharper disable once ValueParameterNotUsed
+                set
+                {
+                }
+            }
+        }
+
+        private class CustomTestException : Exception
         {
             public string CustomString { get; set; }
             public byte CustomByte { get; set; }
