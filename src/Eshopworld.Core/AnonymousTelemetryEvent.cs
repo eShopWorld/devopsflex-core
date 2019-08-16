@@ -1,8 +1,6 @@
 ﻿namespace Eshopworld.Core
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
     using JetBrains.Annotations;
     using Newtonsoft.Json;
 
@@ -38,24 +36,7 @@
         /// <returns>The converted <see cref="IDictionary{String, String}"/>.</returns>
         internal override IDictionary<string, string> ToStringDictionary()
         {
-            try
-            {
-                return JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(Payload))
-                                  .Union(base.ToStringDictionary())
-                                  .ToDictionary(k => k.Key, v => v.Value);
-            }
-            catch (Exception)
-            {
-                return JsonConvert.DeserializeObject<Dictionary<string, string>>(
-                                      JsonConvert.SerializeObject(Payload, new JsonSerializerSettings
-                                      {
-                                          ContractResolver = new NoReferencesJsonContractResolver(),
-                                          PreserveReferencesHandling = PreserveReferencesHandling.None,
-                                          ReferenceLoopHandling = ReferenceLoopHandling.Error
-                                      }))
-                                  .Union(base.ToStringDictionary())
-                                  .ToDictionary(k => k.Key, v => v.Value);
-            }
+            return ToUnionStringDictionary(Payload);
         }
     }
 }

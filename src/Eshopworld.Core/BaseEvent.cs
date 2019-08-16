@@ -1,6 +1,7 @@
 ﻿namespace Eshopworld.Core
 {
     using System;
+    using System.Linq;
     using System.Collections.Generic;
     using JetBrains.Annotations;
     using Newtonsoft.Json;
@@ -21,6 +22,42 @@
         {
         }
 
+
+        internal  IDictionary<string, string> ToUnionStringDictionary(object adjunctObject)
+        {
+            IDictionary<string, string> adjunctDictionary = null;
+            try
+            {
+                adjunctDictionary = ToStringDictionaryInner(adjunctObject);
+            }
+            catch (Exception)
+            {
+                //soak
+            }
+            return adjunctDictionary!=null 
+                ? ToStringDictionaryInner(this).Union(ToStringDictionaryInner(adjunctObject)).ToDictionary(k => k.Key, v => v.Value) 
+                : ToStringDictionaryInner(this);
+        }
+
+        private IDictionary<string, string> ToStringDictionaryInner(object target = null)
+        {
+            target = target ?? this;
+
+            try
+            {
+                return JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(target));
+            }
+            catch (Exception)
+            {
+                return JsonConvert.DeserializeObject<Dictionary<string, string>>(
+                    JsonConvert.SerializeObject(target, new JsonSerializerSettings
+                    {
+                        ContractResolver = new NoReferencesJsonContractResolver(),
+                        PreserveReferencesHandling = PreserveReferencesHandling.None,
+                        ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                    }));
+            }
+        }
         /// <summary>
         /// Converts this POCO to a <see cref="IDictionary{TKey,TValue}"/> by using JSonConvert twice (both directions).
         /// </summary>
@@ -28,20 +65,7 @@
         [NotNull]
         internal virtual IDictionary<string, string> ToStringDictionary()
         {
-            try
-            {
-                return JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(this));
-            }
-            catch (Exception)
-            {
-                return JsonConvert.DeserializeObject<Dictionary<string, string>>(
-                    JsonConvert.SerializeObject(this, new JsonSerializerSettings
-                    {
-                        ContractResolver = new NoReferencesJsonContractResolver(),
-                        PreserveReferencesHandling = PreserveReferencesHandling.None,
-                        ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-                    }));
-            }
+            return ToStringDictionaryInner(this);
         }
 
         /// <summary>
