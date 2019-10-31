@@ -67,13 +67,8 @@
         void Flush();
 
         /// <summary>
-        /// Uses Kusto to stream <see cref="TelemetryEvent"/> besides the normal streaming targets defined in <see cref="IBigBrother"/>.
+        /// Ingest telemetry events into Kusto Data Explorer. Use fluent configuration API to configure client and ingestion strategies, and call .Build() at the end! 
         /// </summary>
-        /// <param name="kustoEngineName">The name of the Kusto Engine to use in all endpoint URIs.</param>
-        /// <param name="kustoEngineLocation">The Location of the Kusto Engine to use in all endpoint URIs.</param>
-        /// <param name="kustoDb">The name of the Kusto database to stream to.</param>
-        /// <param name="tenantId">The AAD tenant ID where the Kusto engine is located.</param>
-        /// <returns></returns>
-        IBigBrother UseKusto(string kustoEngineName, string kustoEngineLocation, string kustoDb, string tenantId);
+        IKustoClusterBuilder UseKusto();
     }
 }
