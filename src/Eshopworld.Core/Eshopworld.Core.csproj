@@ -2,8 +2,8 @@
 
   <PropertyGroup>
 
-    <Version>2.2.0</Version>
-    <PackageReleaseNotes>updated kusto configuration signature</PackageReleaseNotes>
+    <Version>2.3.0</Version>
+    <PackageReleaseNotes>Added support for chaining kusto .WithCluster and .WithBufferedOptions</PackageReleaseNotes>
 
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
