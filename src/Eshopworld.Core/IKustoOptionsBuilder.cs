@@ -13,8 +13,11 @@ namespace Eshopworld.Core
         /// <param name="database">The Kusto database in the engine, that we are targeting.</param>
         /// <param name="tenantId">The tenant ID for the subscription where the Kusto engine is.</param>
         /// <returns>Fluent API chain. Call Build() at the end.</returns>
-        IKustoOptionsBuilder WithCluster(string engine, string region, string database, string tenantId);
+        IKustoBufferedOptionsBuilder WithCluster(string engine, string region, string database, string tenantId);
+    }
 
+    public interface IKustoBufferedOptionsBuilder : IKustoOptionsBuilder
+    {
         /// <summary>
         /// Configures the buffering options for Queued ingestion.
         /// </summary>
