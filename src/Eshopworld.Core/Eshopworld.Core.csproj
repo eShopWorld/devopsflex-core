@@ -2,11 +2,10 @@
 
   <PropertyGroup>
 
-    <Version>2.3.0</Version>
-    <PackageReleaseNotes>Added support for chaining kusto .WithCluster and .WithBufferedOptions</PackageReleaseNotes>
+    <Version>3.0.0</Version>
+    <PackageReleaseNotes>Updated to .Net Standard 2.1</PackageReleaseNotes>
 
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <LangVersion>latest</LangVersion>
+    <TargetFramework>netstandard2.1</TargetFramework>
 
     <IsPackable>True</IsPackable>
     <PackageId>Eshopworld.Core</PackageId>
@@ -21,23 +20,21 @@
 
     <IncludeSource>True</IncludeSource>
     <DebugType>Full</DebugType>
-
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>bin\Debug\</OutputPath>
-    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>bin\Release\</OutputPath>
-    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="JetBrains.Annotations" Version="2018.2.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-    <PackageReference Include="System.Reactive" Version="4.1.2" />
+    <PackageReference Include="JetBrains.Annotations" Version="2019.1.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="System.Reactive" Version="4.3.2" />
   </ItemGroup>
 
 </Project>

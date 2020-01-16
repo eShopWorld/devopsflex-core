@@ -11,7 +11,7 @@
     public class ObjectReferenceEqualityComparer<T> : EqualityComparer<T>
         where T : class
     {
-        private static IEqualityComparer<T> _defaultComparer;
+        private static IEqualityComparer<T>? _defaultComparer;
 
         /// <summary>
         /// Utility static reference to avoid instantiation all the time.

@@ -47,7 +47,7 @@ namespace Eshopworld.Core
         /// Register configured message types and ingestion strategies. 
         /// </summary>
         /// <param name="onMessageSent">Callback invoked after messages have been sent to Kusto</param>
-        void Build(Action<long> onMessageSent = null);
+        void Build(Action<long>? onMessageSent = null);
     }
 
     public interface IKustoOptionsTypeBuilder

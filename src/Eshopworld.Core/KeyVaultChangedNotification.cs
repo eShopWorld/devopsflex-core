@@ -7,6 +7,6 @@
     /// </summary>
     public class KeyVaultChangedNotification : BaseNotification
     {
-        public string KeyVaultName { get; set; }
+        public string? KeyVaultName { get; set; }
     }
 }
