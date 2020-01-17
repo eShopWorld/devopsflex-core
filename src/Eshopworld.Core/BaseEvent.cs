@@ -23,9 +23,9 @@
         }
 
 
-        internal  IDictionary<string, string> ToUnionStringDictionary(object adjunctObject)
+        internal  IDictionary<string, string> ToUnionStringDictionary(object? adjunctObject)
         {
-            IDictionary<string, string> adjunctDictionary = null;
+            IDictionary<string, string>? adjunctDictionary = null;
             try
             {
                 adjunctDictionary = ToStringDictionaryInner(adjunctObject);
@@ -39,9 +39,9 @@
                 : ToStringDictionaryInner(this);
         }
 
-        private IDictionary<string, string> ToStringDictionaryInner(object target = null)
+        private IDictionary<string, string> ToStringDictionaryInner(object? target = null)
         {
-            target = target ?? this;
+            target ??= this;
 
             try
             {

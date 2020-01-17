@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using System.Net;
 using Eshopworld.Core;
 using Eshopworld.Tests.Core;
@@ -79,7 +78,7 @@ public class ExceptionEventTest
 
         private class CustomTestException : Exception
         {
-            public string CustomString { get; set; }
+            public string? CustomString { get; set; }
             public byte CustomByte { get; set; }
             public HttpStatusCode CustomEnum { get; set; }
         }
