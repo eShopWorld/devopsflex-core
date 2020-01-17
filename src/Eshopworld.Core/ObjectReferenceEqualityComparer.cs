@@ -1,6 +1,7 @@
 ﻿namespace Eshopworld.Core
 {
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Runtime.CompilerServices;
 
     /// <summary>
@@ -11,12 +12,10 @@
     public class ObjectReferenceEqualityComparer<T> : EqualityComparer<T>
         where T : class
     {
-        private static IEqualityComparer<T>? _defaultComparer;
-
         /// <summary>
         /// Utility static reference to avoid instantiation all the time.
         /// </summary>
-        public static new IEqualityComparer<T> Default => _defaultComparer ?? (_defaultComparer = new ObjectReferenceEqualityComparer<T>());
+        public static new ObjectReferenceEqualityComparer<T> Default { get; } = new ObjectReferenceEqualityComparer<T>();
 
         /// <summary>
         /// Determines whether the specified objects are equal.
@@ -24,7 +23,7 @@
         /// <param name="x">The first object of type <typeparamref name="T" /> to compare.</param>
         /// <param name="y">The second object of type <typeparamref name="T" /> to compare.</param>
         /// <returns>true if the specified objects are equal; otherwise, false.</returns>
-        public override bool Equals(T x, T y)
+        public override bool Equals([AllowNull]T x, [AllowNull]T y)
         {
             return ReferenceEquals(x, y);
         }
