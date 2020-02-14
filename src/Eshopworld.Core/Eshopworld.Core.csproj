@@ -2,8 +2,8 @@
 
   <PropertyGroup>
 
-    <Version>3.0.0</Version>
-    <PackageReleaseNotes>Updated to .Net Core 3.1</PackageReleaseNotes>
+    <Version>3.1.0</Version>
+    <PackageReleaseNotes>Added EswEventName attribute</PackageReleaseNotes>
 
     <TargetFramework>netcoreapp3.1</TargetFramework>
 
