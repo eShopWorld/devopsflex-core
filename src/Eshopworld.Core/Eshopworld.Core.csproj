@@ -2,10 +2,10 @@
 
   <PropertyGroup>
 
-    <Version>3.1.0</Version>
-    <PackageReleaseNotes>Added EswEventName attribute</PackageReleaseNotes>
+    <Version>4.0.0</Version>
+    <PackageReleaseNotes>Changing TargetFramework back to 2.1</PackageReleaseNotes>
 
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
 
     <IsPackable>True</IsPackable>
     <PackageId>Eshopworld.Core</PackageId>
