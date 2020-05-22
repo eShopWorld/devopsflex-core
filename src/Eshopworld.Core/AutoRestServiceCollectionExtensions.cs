@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Rest;
 
 namespace Eshopworld.Core
@@ -58,7 +59,7 @@ namespace Eshopworld.Core
                 throw new InvalidOperationException($"Type {implType.Name} does not have expected property {BaseUriPropertyName} or type {nameof(Uri)}.");
             }
 
-            services.Add(new ServiceDescriptor(
+            services.TryAdd(new ServiceDescriptor(
                 intType,
                 serviceProvider =>
                 {
