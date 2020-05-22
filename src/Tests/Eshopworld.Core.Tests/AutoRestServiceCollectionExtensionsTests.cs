@@ -57,6 +57,22 @@ namespace Eshopworld.Core.Tests
         }
 
         [Fact, IsUnit]
+        public void AddAutoRestApi_Twice_Succeed()
+        {
+            // Act
+            var provider = _provider
+                .AddAutoRestApi<IAuthoRestClient, AutoRestClient>(_endpoint)
+                .AddAutoRestApi<IAuthoRestClient, AutoRestClient>(_endpoint);
+
+            // Assert
+            Assert.Equal(_provider, provider);
+
+            var client = _provider.GetService<IAuthoRestClient>() as AutoRestClient;
+            Assert.NotNull(client);
+            Assert.Equal(_endpoint, client.BaseUri);
+        }
+
+        [Fact, IsUnit]
         public void AddAutoRestApi_WithInvalidInterface_Throws()
         {
             // Act
