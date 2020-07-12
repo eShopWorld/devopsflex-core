@@ -2,8 +2,8 @@
 
   <PropertyGroup>
 
-    <Version>4.1.1</Version>
-    <PackageReleaseNotes>AutoRest clients registation helper added.</PackageReleaseNotes>
+    <Version>4.1.2</Version>
+    <PackageReleaseNotes>Upgrade of dependencies.</PackageReleaseNotes>
 
     <TargetFramework>netstandard2.1</TargetFramework>
 
