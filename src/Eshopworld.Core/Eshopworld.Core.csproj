@@ -2,7 +2,7 @@
 
   <PropertyGroup>
 
-    <Version>4.1.2</Version>
+    <Version>4.1.3</Version>
     <PackageReleaseNotes>Upgrade of dependencies.</PackageReleaseNotes>
 
     <TargetFramework>netstandard2.1</TargetFramework>
@@ -33,8 +33,8 @@
 
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.5" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.6" />
     <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.21" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="System.Reactive" Version="4.4.1" />
