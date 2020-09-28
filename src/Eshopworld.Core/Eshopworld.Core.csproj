@@ -2,8 +2,8 @@
 
   <PropertyGroup>
 
-    <Version>4.1.6</Version>
-    <PackageReleaseNotes>Upgrade of dependencies.</PackageReleaseNotes>
+    <Version>4.1.7</Version>
+    <PackageReleaseNotes>Add new topic interfaces.</PackageReleaseNotes>
 
     <TargetFramework>netstandard2.1</TargetFramework>
 
