@@ -2,8 +2,8 @@
 
   <PropertyGroup>
 
-    <Version>4.1.7</Version>
-    <PackageReleaseNotes>Add new topic interfaces.</PackageReleaseNotes>
+    <Version>4.2.0</Version>
+    <PackageReleaseNotes>Refactor IMessaging interfaces to allow optional "topicName" parameter</PackageReleaseNotes>
 
     <TargetFramework>netstandard2.1</TargetFramework>
 
