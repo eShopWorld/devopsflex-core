@@ -124,8 +124,9 @@
         /// <param name="subscriptionName">The name of the reliable subscription we're doing for this event type.</param>
         /// <param name="topicName">The name of the topic the subscription is created for</param>
         /// <param name="batchSize">The size of the batch when reading for a topic subscription - used as the pre-fetch parameter of the message receiver</param>
+        /// <param name="deleteOnIdleDurationInMinutes">number of minutes for a subscription to be deleted when idle. If not provided then duration is infinite (TimeSpan.Max)</param>
         /// <exception cref="InvalidOperationException">Thrown when you attempt to setup multiple callbacks against the same <typeparamref name="T"/> parameter.</exception>
-        Task Subscribe<T>(Action<T> callback, string subscriptionName, string? topicName = null, int batchSize = 10) where T : class;
+        Task Subscribe<T>(Action<T> callback, string subscriptionName, string? topicName = null, int batchSize = 10, int? deleteOnIdleDurationInMinutes = null) where T : class;
     }
 
     /// <summary>
