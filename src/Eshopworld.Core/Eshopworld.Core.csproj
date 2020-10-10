@@ -2,8 +2,8 @@
 
   <PropertyGroup>
 
-    <Version>4.2.0</Version>
-    <PackageReleaseNotes>Refactor IMessaging interfaces to allow optional "topicName" parameter</PackageReleaseNotes>
+    <Version>4.2.1</Version>
+    <PackageReleaseNotes>Fix broken IMessaging interfaces</PackageReleaseNotes>
 
     <TargetFramework>netstandard2.1</TargetFramework>
 
