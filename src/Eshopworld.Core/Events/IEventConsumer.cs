@@ -7,7 +7,7 @@ namespace Eshopworld.Core.Events
     /// <summary>
     /// Contract that provides a way to send events to the event streaming bus
     /// </summary>
-    public interface IEventConsumer
+    public interface IEventConsumer: IDisposable
     {
         /// <summary>
         /// Start consuming events from the configured topics

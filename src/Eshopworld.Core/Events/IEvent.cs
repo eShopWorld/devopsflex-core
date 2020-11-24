@@ -30,6 +30,6 @@ namespace Eshopworld.Core.Events
         /// <summary>
         /// Date & time when the event was emitted
         /// </summary>
-        DateTimeOffset CreatedOn { get; }
+        DateTimeOffset CreatedOnUtc { get; }
     }
 }
