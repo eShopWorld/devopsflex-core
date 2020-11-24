@@ -13,7 +13,7 @@ namespace Eshopworld.Core.Events
     /// <summary>
     /// Generic contract for event handlers
     /// </summary>
-    public interface IEventHandler<in TEvent> : IEventHandler where TEvent : IEvent
+    public interface IEventHandler<in TEvent> : IEventHandler where TEvent : BaseEvent
     {
         /// <summary>
         /// Handle event

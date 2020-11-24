@@ -17,6 +17,6 @@ namespace Eshopworld.Core.Events
         /// <param name="topicName">The name of the topic to send the event to.</param>
         /// <param name="partition">If partitioning is supported defines the topic partition the event will be published to.</param>
         /// <param name="cancelToken">Token that can be passed to cancel the operation.</param>
-        Task ProduceAsync<TEvent>(TEvent @event, string topicName, int? partition = null, CancellationToken cancelToken = default) where TEvent : IEvent, new();
+        Task ProduceAsync<TEvent>(TEvent @event, string topicName, int? partition = null, CancellationToken cancelToken = default) where TEvent : BaseEvent;
     }
 }
