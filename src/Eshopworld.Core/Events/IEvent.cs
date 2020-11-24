@@ -25,7 +25,7 @@ namespace Eshopworld.Core.Events
         /// <summary>
         /// Code of the brand for which this event was emitted
         /// </summary>
-        string BrandCode { get; }
+        string TenantCode { get; }
 
         /// <summary>
         /// Date & time when the event was emitted
